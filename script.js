@@ -1,33 +1,176 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ============================================
-    // EFECTO DEL SOBRE
+    // VARIABLES GLOBALES
+    // ============================================
+    let musicaReproduciendo = false;
+    const audio = document.getElementById('audioMusica');
+    const btnMusica = document.getElementById('btnMusica');
+    const btnScrollTop = document.getElementById('btnScrollTop');
+    const navFlotante = document.getElementById('navFlotante');
+    const confettiContainer = document.getElementById('confettiContainer');
+    
+    // ============================================
+    // EFECTO DEL SOBRE CON CONFETTI
     // ============================================
     const sobreContainer = document.querySelector('.sobre-container');
     const portada = document.getElementById('portada');
     const nombres = document.getElementById('nombres');
     
     sobreContainer.addEventListener('click', () => {
-        sobreContainer.style.transform = 'scale(1.1)';
-        sobreContainer.style.transition = 'transform 0.4s ease';
+        sobreContainer.style.transform = 'scale(1.15) rotate(5deg)';
+        sobreContainer.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
         
         setTimeout(() => {
             portada.style.opacity = '0';
-            portada.style.transform = 'scale(1.2)';
-            portada.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            portada.style.transform = 'scale(1.3) rotate(-10deg)';
+            portada.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            
+            crearConfetti();
             
             setTimeout(() => {
                 portada.style.display = 'none';
                 nombres.classList.add('visible');
+                navFlotante.classList.add('visible');
+                btnMusica.classList.add('visible');
+                btnScrollTop.classList.add('visible');
                 
                 setTimeout(() => {
                     iniciarAnimacionesScroll();
                 }, 100);
-            }, 600);
+            }, 500);
         }, 300);
     });
     
     // ============================================
-    // ANIMACIONES DE SCROLL CON INTERSECTION OBSERVER
+    // CONFETTI CELEBRATION
+    // ============================================
+    function crearConfetti() {
+        const colores = ['#c9a86c', '#e8c4b0', '#f4e1d2', '#a68b4b', '#faf8f5'];
+        const cantidad = 80;
+        
+        for (let i = 0; i < cantidad; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.cssText = `
+                position: fixed;
+                width: ${Math.random() * 10 + 5}px;
+                height: ${Math.random() * 10 + 5}px;
+                background: ${colores[Math.floor(Math.random() * colores.length)]};
+                left: ${Math.random() * 100}vw;
+                top: -20px;
+                opacity: ${Math.random() * 0.7 + 0.3};
+                transform: rotate(${Math.random() * 360}deg);
+                border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+                pointer-events: none;
+                z-index: 1000;
+            `;
+            
+            confettiContainer.appendChild(confetti);
+            
+            const animacion = confetti.animate([
+                { 
+                    transform: `translateY(0) rotate(0deg)`,
+                    opacity: 1
+                },
+                { 
+                    transform: `translateY(100vh) rotate(${Math.random() * 720}deg)`,
+                    opacity: 0
+                }
+            ], {
+                duration: Math.random() * 2000 + 2000,
+                easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                delay: Math.random() * 500
+            });
+            
+            animacion.onfinish = () => confetti.remove();
+        }
+    }
+    
+    // ============================================
+    // MÚSICA DE FONDO
+    // ============================================
+    btnMusica.addEventListener('click', toggleMusica);
+    
+    function toggleMusica() {
+        if (musicaReproduciendo) {
+            audio.pause();
+            btnMusica.classList.remove('playing');
+            document.querySelector('.icon-musica').style.display = 'block';
+            document.querySelector('.icon-pausa').style.display = 'none';
+        } else {
+            audio.play().catch(() => {
+                console.log('Audio no disponible o bloqueado');
+            });
+            btnMusica.classList.add('playing');
+            document.querySelector('.icon-musica').style.display = 'none';
+            document.querySelector('.icon-pausa').style.display = 'block';
+        }
+        musicaReproduciendo = !musicaReproduciendo;
+    }
+    
+    audio.addEventListener('ended', () => {
+        musicaReproduciendo = false;
+        btnMusica.classList.remove('playing');
+        document.querySelector('.icon-musica').style.display = 'block';
+        document.querySelector('.icon-pausa').style.display = 'none';
+    });
+    
+    // ============================================
+    // BOTÓN VOLVER ARRIBA
+    // ============================================
+    btnScrollTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            btnScrollTop.classList.add('visible');
+        } else {
+            btnScrollTop.classList.remove('visible');
+        }
+    });
+    
+    // ============================================
+    // NAVEGACIÓN FLOTANTE
+    // ============================================
+    const navBtns = document.querySelectorAll('.nav-btn');
+    
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const seccionId = btn.dataset.section;
+            const seccion = document.getElementById(seccionId);
+            if (seccion) {
+                seccion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    
+    function actualizarNavegacionActiva() {
+        const secciones = ['nombres', 'fecha', 'historia', 'ceremonia', 'recepcion', 'regalos', 'rsvp', 'footer'];
+        const scrollPos = window.scrollY + window.innerHeight / 2;
+        
+        secciones.forEach(id => {
+            const seccion = document.getElementById(id);
+            if (seccion) {
+                const top = seccion.offsetTop;
+                const bottom = top + seccion.offsetHeight;
+                
+                if (scrollPos >= top && scrollPos < bottom) {
+                    navBtns.forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.section === id);
+                    });
+                }
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', actualizarNavegacionActiva, { passive: true });
+    
+    // ============================================
+    // ANIMACIONES DE SCROLL
     // ============================================
     function iniciarAnimacionesScroll() {
         const secciones = document.querySelectorAll('.section:not(#portada):not(#nombres)');
@@ -41,37 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    
-                    // Animar elementos hijos con delay
-                    const hijosAnimables = entry.target.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale');
-                    hijosAnimables.forEach((hijo, index) => {
-                        setTimeout(() => {
-                            hijo.classList.add('visible');
-                        }, 100 + (index * 150));
-                    });
-                    
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
         
         secciones.forEach(seccion => observer.observe(seccion));
-        
-        // Re-observar cuando cambia de sección
-        const scrollHandler = () => {
-            secciones.forEach(seccion => {
-                const rect = seccion.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
-                    seccion.classList.add('visible');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', scrollHandler, { passive: true });
-        scrollHandler();
     }
-    
-
     
     // ============================================
     // CUENTA REGRESIVA MEJORADA
@@ -95,6 +214,9 @@ document.addEventListener('DOMContentLoaded', () => {
             actualizarNumero('segundos', segundos, ultimoValor.segundos);
             
             ultimoValor = { dias, horas, minutos, segundos };
+        } else {
+            document.querySelector('.fecha-label').textContent = '¡Es hoy!';
+            document.querySelector('.countdown').innerHTML = '<p class="hoy-mensaje">¡Hoy es el gran día!</p>';
         }
     }
     
@@ -116,32 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(actualizarCountdown, 1000);
     
     // ============================================
-    // EFECTO PARALLAX SUAVE
-    // ============================================
-    let ticking = false;
-    
-    function parallax() {
-        const scrolled = window.pageYOffset;
-        const sections = document.querySelectorAll('.section');
-        
-        sections.forEach((section, index) => {
-            const rate = index % 2 === 0 ? 0.05 : -0.05;
-            const yPos = -(scrolled * rate);
-            section.style.backgroundPosition = `center ${yPos}px`;
-        });
-        
-        ticking = false;
-    }
-    
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(parallax);
-            ticking = true;
-        }
-    }, { passive: true });
-    
-    // ============================================
-    // EFECTOS HOVER MEJORADOS
+    // EFECTOS HOVER INTERACTIVOS
     // ============================================
     document.querySelectorAll('.timeline-content').forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -163,18 +260,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    document.querySelectorAll('.event-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
     // ============================================
     // SMOOTH SCROLL PARA ENLACES INTERNOS
     // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const href = this.getAttribute('href');
+            if (href && href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             }
         });
     });
@@ -183,4 +293,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // PREVENIR FLASH DE CONTENIDO
     // ============================================
     document.body.style.opacity = '1';
+    
+    // ============================================
+    // KEYBOARD NAVIGATION
+    // ============================================
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !portada.classList.contains('hidden')) {
+            sobreContainer.click();
+        }
+    });
+    
+    // ============================================
+    // TOUCH SUPPORT PARA MÓVIL
+    // ============================================
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    document.addEventListener('touchend', (e) => {
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const diff = touchStartY - touchEndY;
+        if (Math.abs(diff) > 100) {
+            if (diff > 0) {
+                window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+            } else {
+                window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+            }
+        }
+    }
 });

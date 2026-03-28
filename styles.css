@@ -1066,3 +1066,227 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ============================================
+   NAVEGACIÓN FLOTANTE
+   ============================================ */
+.nav-floating {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(90, 74, 58, 0.15);
+    z-index: 900;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-floating.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    color: var(--color-texto-claro);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: var(--color-dorado);
+    background: var(--color-rosa-light);
+}
+
+.nav-btn.active {
+    color: var(--color-dorado-oscuro);
+    background: var(--color-rosa);
+    border-color: var(--color-dorado);
+}
+
+.nav-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.nav-btn:hover svg {
+    transform: scale(1.15);
+}
+
+/* ============================================
+   BOTÓN MÚSICA
+   ============================================ */
+.btn-musica {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 50%;
+    color: var(--color-texto);
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(90, 74, 58, 0.15);
+    z-index: 901;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-musica.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btn-musica:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(90, 74, 58, 0.25);
+}
+
+.btn-musica.playing {
+    background: var(--color-dorado);
+    color: white;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   BOTÓN VOLVER ARRIBA
+   ============================================ */
+.btn-scroll-top {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 50%;
+    color: var(--color-texto);
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(90, 74, 58, 0.15);
+    z-index: 900;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.btn-scroll-top:hover {
+    background: var(--color-dorado);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.btn-scroll-top:active {
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   BOTÓN MAPA
+   ============================================ */
+.btn-mapa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: var(--color-rosa-light);
+    color: var(--color-texto);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-mapa:hover {
+    background: var(--color-dorado);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   MENSAJE "ES HOY"
+   ============================================ */
+.hoy-mensaje {
+    font-family: var(--font-titulo);
+    font-size: 2rem;
+    color: var(--color-dorado-oscuro);
+    text-align: center;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   RESPONSIVE NAV Y BOTONES
+   ============================================ */
+@media (max-width: 768px) {
+    .nav-floating {
+        bottom: 20px;
+        padding: 10px 16px;
+        gap: 6px;
+    }
+
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .btn-musica {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .btn-scroll-top {
+        bottom: 90px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-floating {
+        width: calc(100% - 30px);
+        justify-content: center;
+        overflow-x: auto;
+    }
+
+    .nav-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
