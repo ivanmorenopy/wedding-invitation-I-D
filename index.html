@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World</title>
+  </head>
+  <body>
+    <h1>Hello World 👋</h1>
+    <p>This is a simple static GitHub Pages test.</p>
+    <img src="./photo.jpg" alt="Photo" style="max-width: 100%; height: auto" />
+    <p id="uuid-text">UUID: no proporcionado weeeeee</p>
+    <audio id="bg-audio" loop autoplay>
+      <source src="./audio.opus" type="audio/opus" />
+      <source src="./audio.opus" type="audio/ogg; codecs=opus" />
+      Tu navegador no soporta audio HTML5.
+    </audio>
+    <p id="audio-status">Estado de audio: intentando reproducir…</p>
+    <button id="play-audio-btn" type="button" hidden>Activar audio</button>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const uuid = params.get("uuid");
+      const uuidTextElement = document.getElementById("uuid-text");
+      const bgAudio = document.getElementById("bg-audio");
+      const audioStatus = document.getElementById("audio-status");
+      const playAudioBtn = document.getElementById("play-audio-btn");
+
+      if (uuid && uuidTextElement) {
+        uuidTextElement.textContent = `UUID: ${uuid}`;
+      }
+
+      if (bgAudio) {
+        const tryPlay = () => {
+          bgAudio
+            .play()
+            .then(() => {
+              if (audioStatus) {
+                audioStatus.textContent = "Estado de audio: reproduciendo ✅";
+              }
+              if (playAudioBtn) {
+                playAudioBtn.hidden = true;
+              }
+            })
+            .catch(() => {
+              if (audioStatus) {
+                audioStatus.textContent =
+                  "Estado de audio: autoplay bloqueado. Pulsa ‘Activar audio’.";
+              }
+              if (playAudioBtn) {
+                playAudioBtn.hidden = false;
+              }
+            });
+        };
+
+        bgAudio.addEventListener("error", () => {
+          if (audioStatus) {
+            audioStatus.textContent =
+              "Estado de audio: no se pudo cargar audio.opus (ruta o formato).";
+          }
+          if (playAudioBtn) {
+            playAudioBtn.hidden = true;
+          }
+        });
+
+        if (playAudioBtn) {
+          playAudioBtn.addEventListener("click", tryPlay);
+        }
+
+        tryPlay();
+      }
+    </script>
+  </body>
+</html>
