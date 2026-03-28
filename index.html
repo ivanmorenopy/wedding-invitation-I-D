@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ivan &amp; Daniela — Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <!-- ─── NAV ─────────────────────────────────────────────────────────── -->
+    <nav id="nav">
+      <ul>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#fecha">La Fecha</a></li>
+        <li><a href="#programa">Programa</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+      </ul>
+    </nav>
+
+    <!-- ─── HERO ─────────────────────────────────────────────────────────── -->
+    <section id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content fade-in">
+        <p class="hero-pre">Nos casamos</p>
+        <h1 class="couple-names">
+          <span>Ivan</span>
+          <span class="amp">&amp;</span>
+          <span>Daniela</span>
+        </h1>
+        <p class="hero-date">Sábado, 15 de Noviembre de 2025</p>
+        <a href="#rsvp" class="btn btn-outline">Confirmar asistencia</a>
+      </div>
+      <div class="hero-scroll-hint">
+        <span></span>
+      </div>
+    </section>
+
+    <!-- ─── SAVE THE DATE BANNER ──────────────────────────────────────── -->
+    <section id="save-the-date">
+      <div class="std-inner reveal">
+        <p class="label">Save the Date</p>
+        <h2>15 · 11 · 2025</h2>
+        <p class="sub">Lima, Perú</p>
+      </div>
+    </section>
+
+    <!-- ─── COUNTDOWN ───────────────────────────────────────────────────── -->
+    <section id="countdown">
+      <div class="container reveal">
+        <p class="section-label">Faltan</p>
+        <div class="countdown-grid" id="countdown-grid">
+          <div class="countdown-cell">
+            <span id="cd-days" class="cd-number">00</span>
+            <span class="cd-label">Días</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-cell">
+            <span id="cd-hours" class="cd-number">00</span>
+            <span class="cd-label">Horas</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-cell">
+            <span id="cd-minutes" class="cd-number">00</span>
+            <span class="cd-label">Min</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-cell">
+            <span id="cd-seconds" class="cd-number">00</span>
+            <span class="cd-label">Seg</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── DIVIDER FLORAL ───────────────────────────────────────────────── -->
+    <div class="floral-divider" aria-hidden="true">
+      <svg viewBox="0 0 900 60" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 Q112,5 225,30 T450,30 T675,30 T900,30" fill="none" stroke="#c9a96e" stroke-width="1"/>
+        <circle cx="450" cy="30" r="5" fill="#c9a96e"/>
+        <circle cx="225" cy="30" r="3" fill="#c9a96e"/>
+        <circle cx="675" cy="30" r="3" fill="#c9a96e"/>
+      </svg>
+    </div>
+
+    <!-- ─── NOSOTROS ─────────────────────────────────────────────────────── -->
+    <section id="nosotros">
+      <div class="container two-cols reveal">
+        <div class="col-text">
+          <p class="section-label">Nuestra Historia</p>
+          <h2 class="section-title">Dos almas,<br />una historia</h2>
+          <p class="body-text">
+            Nos conocimos en una tarde que parecía ordinaria, pero que resultó
+            ser el comienzo de la más bella aventura. Con cada día juntos,
+            descubrimos que el amor verdadero no es perfecto, sino auténtico.
+          </p>
+          <p class="body-text">
+            Hoy, con el corazón lleno de gratitud y emoción, queremos
+            compartir con ustedes el momento más importante de nuestras
+            vidas. ¡Acompáñennos a celebrar!
+          </p>
+        </div>
+        <div class="col-image">
+          <div class="portrait-frame">
+            <div class="portrait-placeholder">
+              <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg" class="portrait-svg">
+                <rect width="200" height="260" fill="#f5ede0"/>
+                <circle cx="100" cy="90" r="40" fill="#c9a96e" opacity="0.4"/>
+                <ellipse cx="100" cy="190" rx="55" ry="45" fill="#c9a96e" opacity="0.3"/>
+                <text x="100" y="240" text-anchor="middle" font-family="serif" font-size="11" fill="#8b6f47">I &amp; D</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── DETALLES DE LA BODA ───────────────────────────────────────── -->
+    <section id="fecha" class="section-alt">
+      <div class="container reveal">
+        <p class="section-label">Los Detalles</p>
+        <h2 class="section-title">Cuando &amp; Dónde</h2>
+        <div class="details-grid">
+
+          <div class="detail-card">
+            <div class="detail-icon">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M24 4C15.163 4 8 11.163 8 20c0 12 16 28 16 28s16-16 16-28c0-8.837-7.163-16-16-16zm0 22a6 6 0 110-12 6 6 0 010 12z" fill="#c9a96e"/></svg>
+            </div>
+            <h3>Ceremonia</h3>
+            <p class="detail-name">Iglesia Nuestra Señora del Rosario</p>
+            <p class="detail-info">Av. Javier Prado Este 1234, San Isidro</p>
+            <p class="detail-time">4:00 PM</p>
+          </div>
+
+          <div class="detail-card">
+            <div class="detail-icon">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 8v32h36V8H6zm16 28H10V22h12v14zm0-18H10v-6h12v6zm16 18H26V22h12v14zm0-18H26v-6h12v6z" fill="#c9a96e"/></svg>
+            </div>
+            <h3>Recepción</h3>
+            <p class="detail-name">Casa Hacienda Los Ficus</p>
+            <p class="detail-info">Av. Los Ficus 320, San Isidro, Lima</p>
+            <p class="detail-time">7:00 PM</p>
+          </div>
+
+          <div class="detail-card">
+            <div class="detail-icon">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M24 4a20 20 0 100 40A20 20 0 0024 4zm1 21.59V36h-2V24h-8v-2h9a1 1 0 011 1v3.59zM23 12a2 2 0 110 4 2 2 0 010-4z" fill="#c9a96e"/></svg>
+            </div>
+            <h3>Dresscode</h3>
+            <p class="detail-name">Formal Elegante</p>
+            <p class="detail-info">Paleta de colores: blanco, crema, dorado y navy</p>
+            <p class="detail-time">¡Luce espectacular!</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── DIVIDER ───────────────────────────────────────────────────── -->
+    <div class="floral-divider" aria-hidden="true">
+      <svg viewBox="0 0 900 60" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 Q112,55 225,30 T450,30 T675,30 T900,30" fill="none" stroke="#c9a96e" stroke-width="1"/>
+        <circle cx="450" cy="30" r="5" fill="#c9a96e"/>
+        <circle cx="225" cy="30" r="3" fill="#c9a96e"/>
+        <circle cx="675" cy="30" r="3" fill="#c9a96e"/>
+      </svg>
+    </div>
+
+    <!-- ─── PROGRAMA ────────────────────────────────────────────────────── -->
+    <section id="programa">
+      <div class="container reveal">
+        <p class="section-label">El Día Especial</p>
+        <h2 class="section-title">Programa</h2>
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-time">3:30 PM</span>
+              <h4>Recepción de invitados</h4>
+              <p>Bienvenida en el atrio de la iglesia</p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-time">4:00 PM</span>
+              <h4>Ceremonia religiosa</h4>
+              <p>Iglesia Nuestra Señora del Rosario</p>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-time">5:30 PM</span>
+              <h4>Sesión de fotos</h4>
+              <p>Jardines de la iglesia</p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-time">7:00 PM</span>
+              <h4>Cóctel de bienvenida</h4>
+              <p>Casa Hacienda Los Ficus</p>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-time">8:30 PM</span>
+              <h4>Cena &amp; brindis</h4>
+              <p>Salón principal</p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-time">10:00 PM</span>
+              <h4>Fiesta &amp; baile</h4>
+              <p>¡A bailar toda la noche!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── GALERÍA ──────────────────────────────────────────────────────── -->
+    <section id="galeria" class="section-alt">
+      <div class="container reveal">
+        <p class="section-label">Momentos</p>
+        <h2 class="section-title">Nuestra Galería</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-index="0">
+            <div class="gallery-placeholder g1">
+              <span>Foto 1</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="1">
+            <div class="gallery-placeholder g2">
+              <span>Foto 2</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="2">
+            <div class="gallery-placeholder g3">
+              <span>Foto 3</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="3">
+            <div class="gallery-placeholder g4">
+              <span>Foto 4</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="4">
+            <div class="gallery-placeholder g5">
+              <span>Foto 5</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="5">
+            <div class="gallery-placeholder g6">
+              <span>Foto 6</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── RSVP ─────────────────────────────────────────────────────────── -->
+    <section id="rsvp">
+      <div class="container reveal">
+        <p class="section-label">Confirma tu asistencia</p>
+        <h2 class="section-title">¿Nos acompañas?</h2>
+        <p class="body-text center">
+          Por favor confirma tu asistencia antes del <strong>1 de Octubre de 2025</strong>.
+          Tu presencia hace nuestro día aún más especial.
+        </p>
+        <form id="rsvp-form" class="rsvp-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre completo *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+              <span class="field-error" id="nombre-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+              <span class="field-error" id="email-error"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="asistencia">¿Asistirás? *</label>
+              <select id="asistencia" name="asistencia" required>
+                <option value="">Selecciona una opción</option>
+                <option value="si">Sí, asistiré con gusto 🎉</option>
+                <option value="no">Lo siento, no podré asistir</option>
+              </select>
+              <span class="field-error" id="asistencia-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="acompanante">¿Con acompañante?</label>
+              <select id="acompanante" name="acompanante">
+                <option value="">Selecciona una opción</option>
+                <option value="solo">Asistiré solo/a</option>
+                <option value="acompanado">Asistiré con acompañante</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label for="mensaje">Mensaje para los novios (opcional)</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe un mensaje especial para Ivan y Daniela…"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Enviar confirmación</button>
+          </div>
+        </form>
+        <div id="rsvp-success" class="rsvp-success hidden">
+          <div class="success-icon">✓</div>
+          <h3>¡Gracias por confirmar!</h3>
+          <p>Hemos recibido tu respuesta. ¡Nos vemos el 15 de Noviembre!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── UBICACIÓN ─────────────────────────────────────────────────── -->
+    <section id="ubicacion" class="section-alt">
+      <div class="container reveal">
+        <p class="section-label">Cómo llegar</p>
+        <h2 class="section-title">Ubicación</h2>
+        <div class="location-grid">
+          <div class="location-info">
+            <h3>Ceremonia</h3>
+            <p>Iglesia Nuestra Señora del Rosario</p>
+            <p>Av. Javier Prado Este 1234</p>
+            <p>San Isidro, Lima, Perú</p>
+            <a href="https://maps.google.com/?q=San+Isidro+Lima+Peru" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Ver en Google Maps</a>
+          </div>
+          <div class="location-info">
+            <h3>Recepción</h3>
+            <p>Casa Hacienda Los Ficus</p>
+            <p>Av. Los Ficus 320</p>
+            <p>San Isidro, Lima, Perú</p>
+            <a href="https://maps.google.com/?q=San+Isidro+Lima+Peru" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Ver en Google Maps</a>
+          </div>
+        </div>
+        <div class="map-placeholder reveal">
+          <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" class="map-svg">
+            <rect width="800" height="300" fill="#e8e0d5"/>
+            <rect x="0" y="120" width="800" height="4" fill="#d4c4a8" opacity="0.6"/>
+            <rect x="350" y="0" width="4" height="300" fill="#d4c4a8" opacity="0.6"/>
+            <rect x="200" y="60" width="150" height="80" rx="4" fill="#c9b99a" opacity="0.5"/>
+            <rect x="450" y="150" width="120" height="90" rx="4" fill="#c9b99a" opacity="0.5"/>
+            <circle cx="400" cy="150" r="18" fill="#c9a96e"/>
+            <circle cx="400" cy="150" r="8" fill="#fff"/>
+            <text x="400" y="190" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#8b6f47">Lima, Perú</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
+    <footer id="footer">
+      <div class="footer-ornament" aria-hidden="true">
+        <svg viewBox="0 0 600 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50,40 Q150,10 300,40 T550,40" fill="none" stroke="#c9a96e" stroke-width="1" opacity="0.6"/>
+          <circle cx="300" cy="40" r="6" fill="#c9a96e" opacity="0.8"/>
+          <circle cx="150" cy="32" r="3" fill="#c9a96e" opacity="0.6"/>
+          <circle cx="450" cy="32" r="3" fill="#c9a96e" opacity="0.6"/>
+          <circle cx="80" cy="40" r="2" fill="#c9a96e" opacity="0.4"/>
+          <circle cx="520" cy="40" r="2" fill="#c9a96e" opacity="0.4"/>
+        </svg>
+      </div>
+      <h2 class="footer-names">Ivan &amp; Daniela</h2>
+      <p class="footer-date">15 · 11 · 2025</p>
+      <p class="footer-quote">"Dos vidas unidas por el amor eterno"</p>
+      <nav class="footer-nav">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#fecha">Detalles</a>
+        <a href="#programa">Programa</a>
+        <a href="#galeria">Galería</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+      <p class="footer-copy">&copy; 2025 Ivan &amp; Daniela · Con amor ❤</p>
+    </footer>
+
+    <!-- ─── LIGHTBOX ─────────────────────────────────────────────────────── -->
+    <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Galería de fotos">
+      <button class="lb-close" id="lb-close" aria-label="Cerrar">&times;</button>
+      <button class="lb-prev" id="lb-prev" aria-label="Anterior">&#8249;</button>
+      <div class="lb-content" id="lb-content"></div>
+      <button class="lb-next" id="lb-next" aria-label="Siguiente">&#8250;</button>
+    </div>
+    <div id="lightbox-overlay" class="lightbox-overlay hidden"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
