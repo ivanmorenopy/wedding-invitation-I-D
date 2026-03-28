@@ -27,17 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
             
             crearConfetti();
             
+        setTimeout(() => {
+            portada.style.display = 'none';
+            nombres.classList.add('visible');
+            navFlotante.classList.add('visible');
+            btnMusica.classList.add('visible');
+            btnScrollTop.classList.add('visible');
+            
+            audio.play().then(() => {
+                musicaReproduciendo = true;
+                btnMusica.classList.add('playing');
+                document.querySelector('.icon-musica').style.display = 'none';
+                document.querySelector('.icon-pausa').style.display = 'block';
+            }).catch(() => {
+                console.log('Audio no disponible o bloqueado');
+            });
+            
             setTimeout(() => {
-                portada.style.display = 'none';
-                nombres.classList.add('visible');
-                navFlotante.classList.add('visible');
-                btnMusica.classList.add('visible');
-                btnScrollTop.classList.add('visible');
-                
-                setTimeout(() => {
-                    iniciarAnimacionesScroll();
-                }, 100);
-            }, 500);
+                iniciarAnimacionesScroll();
+            }, 100);
+        }, 500);
         }, 300);
     });
     
