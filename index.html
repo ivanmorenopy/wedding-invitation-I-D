@@ -1,74 +1,159 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World</title>
-  </head>
-  <body>
-    <h1>Hello World 👋</h1>
-    <p>This is a simple static GitHub Pages test.</p>
-    <img src="./photo.jpg" alt="Photo" style="max-width: 100%; height: auto" />
-    <p id="uuid-text">UUID: no proporcionado weeeeee</p>
-    <audio id="bg-audio" loop autoplay>
-      <source src="./audio.opus" type="audio/opus" />
-      <source src="./audio.opus" type="audio/ogg; codecs=opus" />
-      Tu navegador no soporta audio HTML5.
-    </audio>
-    <p id="audio-status">Estado de audio: intentando reproducir…</p>
-    <button id="play-audio-btn" type="button" hidden>Activar audio</button>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivan & Denys - Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <!-- Sección 1: Portada con sobre -->
+        <section id="portada" class="section portada">
+            <div class="sobre-container">
+                <img src="imagen-sobre-cerrado.jpg" alt="Sobre de invitación" class="sobre-img">
+                <div class="sobre-overlay">
+                    <p class="sobre-texto">Toca para abrir</p>
+                </div>
+            </div>
+        </section>
 
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      const uuid = params.get("uuid");
-      const uuidTextElement = document.getElementById("uuid-text");
-      const bgAudio = document.getElementById("bg-audio");
-      const audioStatus = document.getElementById("audio-status");
-      const playAudioBtn = document.getElementById("play-audio-btn");
+        <!-- Sección 2: Nombres de los novios -->
+        <section id="nombres" class="section nombres hidden">
+            <div class="container">
+                <p class="pre-titulo">Nos casamos</p>
+                <h1 class="nombres-titulo">
+                    <span class="nombre">Ivan</span>
+                    <span class="ampersand">&</span>
+                    <span class="nombre">Denys</span>
+                </h1>
+                <div class="decorative-line"></div>
+            </div>
+        </section>
 
-      if (uuid && uuidTextElement) {
-        uuidTextElement.textContent = `UUID: ${uuid}`;
-      }
+        <!-- Sección 3: Fecha y Cuenta Regresiva -->
+        <section id="fecha" class="section fecha hidden">
+            <div class="container">
+                <p class="fecha-label">22 de Noviembre 2026</p>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="dias">00</span>
+                        <span class="countdown-label">Días</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="horas">00</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutos">00</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="segundos">00</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      if (bgAudio) {
-        const tryPlay = () => {
-          bgAudio
-            .play()
-            .then(() => {
-              if (audioStatus) {
-                audioStatus.textContent = "Estado de audio: reproduciendo ✅";
-              }
-              if (playAudioBtn) {
-                playAudioBtn.hidden = true;
-              }
-            })
-            .catch(() => {
-              if (audioStatus) {
-                audioStatus.textContent =
-                  "Estado de audio: autoplay bloqueado. Pulsa ‘Activar audio’.";
-              }
-              if (playAudioBtn) {
-                playAudioBtn.hidden = false;
-              }
-            });
-        };
+        <!-- Sección 4: Historia de Amor -->
+        <section id="historia" class="section historia hidden">
+            <div class="container">
+                <h2 class="section-title">Nuestra Historia</h2>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2020</span>
+                            <p class="timeline-text">Cuando nos conocimos</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2021</span>
+                            <p class="timeline-text">Nuestro primer viaje juntos</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2023</span>
+                            <p class="timeline-text">Decidimos estar juntos para siempre</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2026</span>
+                            <p class="timeline-text">¡Nos casamos!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        bgAudio.addEventListener("error", () => {
-          if (audioStatus) {
-            audioStatus.textContent =
-              "Estado de audio: no se pudo cargar audio.opus (ruta o formato).";
-          }
-          if (playAudioBtn) {
-            playAudioBtn.hidden = true;
-          }
-        });
+        <!-- Sección 5: Ceremonia -->
+        <section id="ceremonia" class="section ceremonia hidden">
+            <div class="container">
+                <h2 class="section-title">Ceremonia</h2>
+                <div class="event-card">
+                    <div class="event-icon">💒</div>
+                    <p class="event-date">22 de Noviembre 2026</p>
+                    <p class="event-time">[Hora a confirmar]</p>
+                    <p class="event-place">[Lugar a confirmar]</p>
+                    <p class="event-address">[Dirección]</p>
+                </div>
+            </div>
+        </section>
 
-        if (playAudioBtn) {
-          playAudioBtn.addEventListener("click", tryPlay);
-        }
+        <!-- Sección 6: Recepción -->
+        <section id="recepcion" class="section recepcion hidden">
+            <div class="container">
+                <h2 class="section-title">Recepción</h2>
+                <div class="event-card">
+                    <div class="event-icon">🥂</div>
+                    <p class="event-date">22 de Noviembre 2026</p>
+                    <p class="event-time">[Hora a confirmar]</p>
+                    <p class="event-place">[Lugar a confirmar]</p>
+                    <p class="event-address">[Dirección]</p>
+                </div>
+            </div>
+        </section>
 
-        tryPlay();
-      }
-    </script>
-  </body>
+        <!-- Sección 7: Mesa de Regalos -->
+        <section id="regalos" class="section regalos hidden">
+            <div class="container">
+                <h2 class="section-title">Mesa de Regalos</h2>
+                <p class="regalos-texto">Su presencia es el mejor regalo. Si deseas obsequiarnos algo, hemos creado una lista de preferencias.</p>
+                <div class="regalos-botones">
+                    <a href="#" class="btn-regalo">Amazon</a>
+                    <a href="#" class="btn-regalo">Liverpool</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 8: Confirmar Asistencia -->
+        <section id="rsvp" class="section rsvp hidden">
+            <div class="container">
+                <h2 class="section-title">Confirma tu Asistencia</h2>
+                <p class="rsvp-texto">Por favor, ayúdanos confirmando tu asistencia antes del 15 de Octubre 2026</p>
+                <a href="https://wa.me/521234567890?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Ivan%20y%20Denys" class="btn-whatsapp" target="_blank">
+                    Confirmar por WhatsApp
+                </a>
+            </div>
+        </section>
+
+        <!-- Sección 9: Footer -->
+        <section id="footer" class="section footer hidden">
+            <div class="container">
+                <img src="imagen-sello.jpg" alt="Sello" class="sello-img">
+                <p class="footer-mensaje">Con amor,</p>
+                <p class="footer-nombres">Ivan & Denys</p>
+                <p class="footer-fecha">22 · 11 · 2026</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
 </html>
