@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     function actualizarNavegacionActiva() {
-        const secciones = ['nombres', 'fecha', 'historia', 'ceremonia', 'recepcion', 'regalos', 'rsvp', 'footer'];
+        const secciones = ['nombres', 'fecha', 'historia', 'ceremonia', 'regalos', 'rsvp', 'footer'];
         const scrollPos = window.scrollY + window.innerHeight / 2;
         
         secciones.forEach(id => {
