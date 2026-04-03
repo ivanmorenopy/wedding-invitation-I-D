@@ -16,7 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const portada = document.getElementById('portada');
     const nombres = document.getElementById('nombres');
     
-    sobreContainer.addEventListener('click', () => {
+    sobreContainer.addEventListener('click', abrirInvitacion);
+    sobreContainer.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            abrirInvitacion();
+        }
+    });
+    
+    function abrirInvitacion() {
         sobreContainer.style.transform = 'scale(1.15) rotate(5deg)';
         sobreContainer.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
         
@@ -48,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 100);
         }, 500);
         }, 300);
-    });
+    };
     
     // ============================================
     // CONFETTI CELEBRATION
@@ -104,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (musicaReproduciendo) {
             audio.pause();
             btnMusica.classList.remove('playing');
+            btnMusica.setAttribute('aria-pressed', 'false');
             document.querySelector('.icon-musica').style.display = 'block';
             document.querySelector('.icon-pausa').style.display = 'none';
         } else {
@@ -111,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Audio no disponible o bloqueado');
             });
             btnMusica.classList.add('playing');
+            btnMusica.setAttribute('aria-pressed', 'true');
             document.querySelector('.icon-musica').style.display = 'none';
             document.querySelector('.icon-pausa').style.display = 'block';
         }
@@ -204,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // CUENTA REGRESIVA MEJORADA
     // ============================================
-    let ultimoValor = { dias: -1, horas: -1, minutos: -1, segundos: -1 };
+    let ultimoValor = { dias: -1, horas: -1, minutos: -1 };
     
     function actualizarCountdown() {
         const fechaBoda = new Date('2026-11-22T00:00:00');
@@ -215,14 +225,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
             const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
             
             actualizarNumero('dias', dias, ultimoValor.dias);
             actualizarNumero('horas', horas, ultimoValor.horas);
             actualizarNumero('minutos', minutos, ultimoValor.minutos);
-            actualizarNumero('segundos', segundos, ultimoValor.segundos);
             
-            ultimoValor = { dias, horas, minutos, segundos };
+            ultimoValor = { dias, horas, minutos };
         } else {
             document.querySelector('.fecha-label').textContent = '¡Es hoy!';
             document.querySelector('.countdown').innerHTML = '<p class="hoy-mensaje">¡Hoy es el gran día!</p>';
@@ -304,37 +312,94 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.opacity = '1';
     
     // ============================================
-    // KEYBOARD NAVIGATION
+    // KEYBOARD NAVIGATION MEJORADA
     // ============================================
     document.addEventListener('keydown', (e) => {
+        const secciones = ['portada', 'nombres', 'fecha', 'historia', 'ceremonia', 'regalos', 'rsvp', 'footer'];
+        
         if (e.key === 'Escape' && !portada.classList.contains('hidden')) {
             sobreContainer.click();
+            return;
+        }
+        
+        if (['nombres', 'fecha', 'historia', 'ceremonia', 'regalos', 'rsvp', 'footer'].some(id => 
+            document.getElementById(id).classList.contains('visible'))) {
+            
+            const seccionActual = secciones.find(id => {
+                const el = document.getElementById(id);
+                if (!el) return false;
+                const rect = el.getBoundingClientRect();
+                return rect.top <= window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
+            });
+            
+            const indiceActual = secciones.indexOf(seccionActual);
+            
+            if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+                e.preventDefault();
+                const siguiente = secciones[indiceActual + 1];
+                if (siguiente) {
+                    const el = document.getElementById(siguiente);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+            
+            if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                e.preventDefault();
+                const anterior = secciones[indiceActual - 1];
+                if (anterior) {
+                    const el = document.getElementById(anterior);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+            
+            if (e.key === 'Home') {
+                e.preventDefault();
+                const primera = document.getElementById('nombres');
+                if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            
+            if (e.key === 'End') {
+                e.preventDefault();
+                const ultima = document.getElementById('footer');
+                if (ultima) ultima.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     });
     
     // ============================================
-    // TOUCH SUPPORT PARA MÓVIL
+    // TOUCH SUPPORT MEJORADO - SWIPE GESTURES
     // ============================================
     let touchStartY = 0;
+    let touchStartX = 0;
     let touchEndY = 0;
+    let touchEndX = 0;
+    let isScrolling = false;
     
     document.addEventListener('touchstart', (e) => {
         touchStartY = e.changedTouches[0].screenY;
+        touchStartX = e.changedTouches[0].screenX;
+        isScrolling = false;
+    }, { passive: true });
+    
+    document.addEventListener('touchmove', () => {
+        isScrolling = true;
     }, { passive: true });
     
     document.addEventListener('touchend', (e) => {
+        if (isScrolling) return;
+        
         touchEndY = e.changedTouches[0].screenY;
-        handleSwipe();
-    }, { passive: true });
-    
-    function handleSwipe() {
-        const diff = touchStartY - touchEndY;
-        if (Math.abs(diff) > 100) {
-            if (diff > 0) {
-                window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        touchEndX = e.changedTouches[0].screenX;
+        
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+        
+        if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 80) {
+            if (diffY > 0) {
+                window.scrollBy({ top: window.innerHeight * 0.7, behavior: 'smooth' });
             } else {
-                window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+                window.scrollBy({ top: -window.innerHeight * 0.7, behavior: 'smooth' });
             }
         }
-    }
+    }, { passive: true });
 });

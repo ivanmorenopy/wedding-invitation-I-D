@@ -326,6 +326,17 @@ body {
     transform: scale(0.98);
 }
 
+.sobre-container:focus {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
+.sobre-container:focus-visible {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 4px;
+}
+
 .sobre-img {
     width: 100%;
     max-width: 350px;
@@ -526,6 +537,12 @@ body {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 50px rgba(90, 74, 58, 0.12);
     transition: all 0.3s ease;
+}
+
+.countdown-item:focus-within {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+    border-radius: 16px;
 }
 
 .countdown-number {
@@ -848,6 +865,16 @@ body {
     transform: translateY(-2px) scale(1.02);
 }
 
+.btn-regalo:focus {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
+.btn-regalo:focus-visible {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
 /* ============================================
    SECCIÓN 8: RSVP
    ============================================ */
@@ -903,6 +930,16 @@ body {
 
 .btn-whatsapp:active {
     transform: translateY(-2px) scale(1.02);
+}
+
+.btn-whatsapp:focus {
+    outline: 3px solid #25D366;
+    outline-offset: 2px;
+}
+
+.btn-whatsapp:focus-visible {
+    outline: 3px solid #25D366;
+    outline-offset: 2px;
 }
 
 /* ============================================
@@ -1120,6 +1157,20 @@ body {
     border-color: var(--color-dorado);
 }
 
+.nav-btn:focus {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
+.nav-btn:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.nav-btn:focus-visible {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
 .nav-btn svg {
     transition: transform 0.3s ease;
 }
@@ -1161,6 +1212,16 @@ body {
 .btn-musica:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 30px rgba(90, 74, 58, 0.25);
+}
+
+.btn-musica:focus {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
+.btn-musica:focus-visible {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
 }
 
 .btn-musica.playing {
@@ -1207,6 +1268,16 @@ body {
     transform: translateY(-5px);
 }
 
+.btn-scroll-top:focus {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
+.btn-scroll-top:focus-visible {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
 .btn-scroll-top:active {
     transform: translateY(-2px);
 }
@@ -1238,6 +1309,16 @@ body {
     transform: translateY(-2px);
 }
 
+.btn-mapa:focus {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
+.btn-mapa:focus-visible {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
 .btn-calendario {
     display: flex;
     align-items: center;
@@ -1261,10 +1342,14 @@ body {
     transform: translateY(-2px);
 }
 
-.btn-calendario:hover {
-    background: var(--color-dorado);
-    color: white;
-    transform: translateY(-2px);
+.btn-calendario:focus {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
+.btn-calendario:focus-visible {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
 }
 
 .event-icon img {
