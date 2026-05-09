@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://ivanmorenopy.github.io/wedding-invitation-I-D/styles.css">
+  <style>
+    :root {
+      --primary: #b08d57;
+      --secondary: #fdfaf6;
+      --text: #4a4a4a;
+      --accent: #d4af37;
+    }
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background-color: var(--secondary); 
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-image: radial-gradient(#e0d5c1 0.5px, transparent 0.5px);
+      background-size: 20px 20px;
+    }
+    .card { 
+      background: white; 
+      padding: 40px; 
+      border-radius: 50px 50px 5px 5px; 
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
+      width: 90%; 
+      max-width: 450px; 
+      text-align: center;
+      border: 1px solid #f0e6d6;
+      position: relative;
+    }
+    .card::before {
+      content: "❤";
+      color: var(--accent);
+      font-size: 24px;
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--secondary);
+      padding: 0 15px;
+    }
+    h2 { 
+      font-family: 'Playfair Display', serif;
+      color: var(--primary); 
+      font-size: 32px;
+      margin-bottom: 5px;
+      font-style: italic;
+    }
+    .subtitle {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      color: #999;
+    }
+    label { 
+      display: block; 
+      margin-top: 20px; 
+      font-size: 13px;
+      text-align: left;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    input { 
+      width: 100%; 
+      padding: 12px 0; 
+      margin-top: 5px; 
+      border: none;
+      border-bottom: 1px solid #e0e0e0;
+      font-family: inherit;
+      font-size: 16px;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+    input:focus { border-bottom-color: var(--accent); }
+    button { 
+      width: 100%; 
+      padding: 15px; 
+      background: var(--primary); 
+      color: white; 
+      border: none; 
+      border-radius: 30px; 
+      margin-top: 40px; 
+      cursor: pointer; 
+      font-size: 16px;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(176, 141, 87, 0.3);
+    }
+    button:hover { background: var(--accent); transform: translateY(-2px); }
+    button:disabled { background: #dcdcdc; box-shadow: none; }
+    #msg { 
+      margin-top: 25px; 
+      padding: 15px; 
+      border-radius: 8px; 
+      font-size: 14px;
+      display: none; 
+    }
+    .error { border: 1px solid #f5c6cb; color: #721c24; background: #f8d7da; }
+    .success { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--primary); }
+    .ornament { color: var(--accent); font-size: 20px; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <? if (grupo) { ?>
+      <h2>Nuestra Boda</h2>
+      <div class="subtitle">Pase de Invitación</div>
+      <div class="ornament">~ ❁ ~</div>
+      
+      <form id="formBoda">
+        <input type="hidden" name="filaAncla" value="<?= grupo.fila ?>">
+        
+        <label>CÓDIGO DE CONFIRMACIÓN</label>
+        <input type="password" name="passConfirm" required placeholder="Introduce tu código secreto">
+        
+        <div style="margin-top: 30px;">
+          <? for (var i = 0; i < grupo.cantidad; i++) { ?>
+            <label>NOMBRE DEL INVITADO <?= i + 1 ?></label>
+            <input type="text" name="nombre<?= i ?>" required placeholder="Escribe aquí el nombre">
+          <? } ?>
+        </div>
+        
+        <button type="submit" id="btn">Confirmar Asistencia</button>
+      </form>
+    <? } else { ?>
+      <h2 style="font-size: 20px;">Invitación no encontrada</h2>
+      <p>Por favor, revisa el enlace enviado.</p>
+    <? } ?>
+    <div id="msg"></div>
+  </div>
+
+  <script>
+    document.getElementById('formBoda').onsubmit = function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn');
+      const msgDiv = document.getElementById('msg');
+      btn.disabled = true;
+      btn.innerText = "Enviando con amor...";
+      msgDiv.style.display = 'none';
+
+      google.script.run
+        .withSuccessHandler(res => {
+          document.getElementById('formBoda').style.display = 'none';
+          document.querySelector('.ornament').style.display = 'none';
+          msgDiv.innerHTML = "<h3>¡Sí, acepto!</h3>" + res;
+          msgDiv.className = 'success';
+          msgDiv.style.display = 'block';
+        })
+        .withFailureHandler(err => {
+          msgDiv.innerHTML = err.message;
+          msgDiv.className = 'error';
+          msgDiv.style.display = 'block';
+          btn.disabled = false;
+          btn.innerText = "Confirmar Asistencia";
+        })
+        .actualizarRegistro(this);
+    };
+  </script>
+</body>
+</html>
