@@ -876,6 +876,186 @@ body {
 }
 
 /* ============================================
+   SECCIÓN 7: CÓDIGO DE VESTIMENTA
+   ============================================ */
+.vestimenta {
+    background: linear-gradient(180deg, var(--color-crema) 0%, var(--color-rosa-light) 50%, var(--color-crema) 100%);
+}
+
+.vestimenta .container {
+    text-align: center;
+}
+
+.vestimenta-intro {
+    font-size: 1.1rem;
+    color: var(--color-texto-claro);
+    max-width: 550px;
+    margin: 0 auto 50px;
+    line-height: 1.8;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.vestimenta.visible .vestimenta-intro {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vestimenta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 600px;
+    margin: 0 auto 50px;
+}
+
+.vestimenta-card {
+    background: white;
+    padding: 40px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(90, 74, 58, 0.08);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.vestimenta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-dorado), var(--color-rosa-oscuro), var(--color-dorado));
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.vestimenta.visible .vestimenta-card::before {
+    opacity: 1;
+}
+
+.vestimenta.visible .vestimenta-card:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.vestimenta.visible .vestimenta-card:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.vestimenta-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(90, 74, 58, 0.12);
+    transition: all 0.4s ease;
+}
+
+.vestimenta-icono {
+    width: 70px;
+    height: 70px;
+    background: var(--color-rosa-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--color-dorado-oscuro);
+    transition: all 0.4s ease;
+}
+
+.vestimenta-card:hover .vestimenta-icono {
+    background: var(--color-dorado);
+    color: white;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.vestimenta-label {
+    font-family: var(--font-titulo);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-texto);
+    margin-bottom: 12px;
+}
+
+.vestimenta-desc {
+    font-size: 0.95rem;
+    color: var(--color-texto-claro);
+    line-height: 1.7;
+}
+
+.vestimenta-paleta {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.vestimenta.visible .vestimenta-paleta {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+.vestimenta-paleta-texto {
+    font-family: var(--font-titulo);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--color-texto-claro);
+    margin-bottom: 20px;
+}
+
+.vestimenta-colores {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.vestimenta-color {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(90, 74, 58, 0.15);
+    cursor: help;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 3px solid transparent;
+}
+
+.vestimenta-color:hover {
+    transform: scale(1.25);
+    box-shadow: 0 8px 25px rgba(90, 74, 58, 0.25);
+    border-color: var(--color-dorado);
+}
+
+.vestimenta-color:focus {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 3px;
+}
+
+.vestimenta-color:focus-visible {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .vestimenta-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 400px;
+    }
+
+    .vestimenta-card {
+        padding: 30px 20px;
+    }
+}
+
+/* ============================================
    SECCIÓN 8: RSVP
    ============================================ */
 .rsvp {

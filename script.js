@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     function actualizarNavegacionActiva() {
-        const secciones = ['nombres', 'fecha', 'historia', 'ceremonia', 'regalos', 'rsvp', 'footer'];
+        const secciones = ['nombres', 'fecha', 'historia', 'ceremonia', 'vestimenta', 'regalos', 'rsvp', 'footer'];
         const scrollPos = window.scrollY + window.innerHeight / 2;
         
         secciones.forEach(id => {
@@ -315,14 +315,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // KEYBOARD NAVIGATION MEJORADA
     // ============================================
     document.addEventListener('keydown', (e) => {
-        const secciones = ['portada', 'nombres', 'fecha', 'historia', 'ceremonia', 'regalos', 'rsvp', 'footer'];
+        const secciones = ['portada', 'nombres', 'fecha', 'historia', 'ceremonia', 'vestimenta', 'regalos', 'rsvp', 'footer'];
         
         if (e.key === 'Escape' && !portada.classList.contains('hidden')) {
             sobreContainer.click();
             return;
         }
         
-        if (['nombres', 'fecha', 'historia', 'ceremonia', 'regalos', 'rsvp', 'footer'].some(id => 
+        if (['nombres', 'fecha', 'historia', 'ceremonia', 'vestimenta', 'regalos', 'rsvp', 'footer'].some(id => 
             document.getElementById(id).classList.contains('visible'))) {
             
             const seccionActual = secciones.find(id => {

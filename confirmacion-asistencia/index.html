@@ -2,163 +2,213 @@
 <html>
 <head>
   <base target="_top">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://ivanmorenopy.github.io/wedding-invitation-I-D/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --primary: #b08d57;
-      --secondary: #fdfaf6;
-      --text: #4a4a4a;
-      --accent: #d4af37;
+      --primary-gold: #c9a86c;
+      --primary-dark-gold: #a68b4b;
+      --accent-pink-light: #faf0eb;
+      --accent-pink-mid: #f4e1d2;
+      --bg-cream: #faf8f5;
+      --text-primary: #5a4a3a;
+      --text-muted: #8a7a6a;
+      --surface: #ffffff;
+      --transition-suave: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+
     body { 
-      font-family: 'Poppins', sans-serif; 
-      background-color: var(--secondary); 
-      color: var(--text);
+      font-family: 'Montserrat', sans-serif; 
+      background-color: var(--bg-cream); 
+      color: var(--text-primary);
+      margin: 0;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      background-image: radial-gradient(#e0d5c1 0.5px, transparent 0.5px);
-      background-size: 20px 20px;
+      overflow-x: hidden;
+      /* Textura sutil */
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235a4a3a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
+
+    .container {
+      padding: 50px 20px;
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      justify-content: center;
+    }
+
     .card { 
-      background: white; 
-      padding: 40px; 
-      border-radius: 50px 50px 5px 5px; 
-      box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
-      width: 90%; 
+      background: var(--surface); 
+      padding: clamp(25px, 8vw, 60px); 
+      border-radius: 20px; 
+      box-shadow: 0 15px 35px rgba(90, 74, 58, 0.1); 
+      width: 100%; 
       max-width: 450px; 
       text-align: center;
-      border: 1px solid #f0e6d6;
-      position: relative;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s var(--spring);
     }
-    .card::before {
-      content: "❤";
-      color: var(--accent);
-      font-size: 24px;
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--secondary);
-      padding: 0 15px;
-    }
+
+    .card.visible { opacity: 1; transform: translateY(0); }
+
     h2 { 
-      font-family: 'Playfair Display', serif;
-      color: var(--primary); 
-      font-size: 32px;
-      margin-bottom: 5px;
-      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--text-primary); 
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 10px;
+      line-height: 1.1;
+      font-weight: 500;
     }
+
     .subtitle {
-      font-size: 14px;
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 6px;
       margin-bottom: 30px;
-      color: #999;
+      color: var(--text-muted);
+      font-weight: 500;
     }
+
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
     label { 
       display: block; 
-      margin-top: 20px; 
-      font-size: 13px;
+      margin-top: 25px; 
+      font-size: 11px;
       text-align: left;
-      color: var(--primary);
-      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      font-weight: 500;
+      text-transform: uppercase;
     }
+
     input { 
       width: 100%; 
       padding: 12px 0; 
       margin-top: 5px; 
       border: none;
-      border-bottom: 1px solid #e0e0e0;
-      font-family: inherit;
+      border-bottom: 1px solid var(--accent-pink-mid);
+      font-family: 'Montserrat', sans-serif;
       font-size: 16px;
-      transition: border-color 0.3s;
+      color: var(--text-primary);
+      background: transparent;
+      transition: var(--transition-suave);
       outline: none;
     }
-    input:focus { border-bottom-color: var(--accent); }
+
+    input:focus { 
+      border-bottom-color: var(--primary-gold);
+      padding-left: 8px;
+    }
+
     button { 
       width: 100%; 
-      padding: 15px; 
-      background: var(--primary); 
+      padding: 18px; 
+      background: var(--primary-gold); 
       color: white; 
       border: none; 
-      border-radius: 30px; 
-      margin-top: 40px; 
+      border-radius: 50px; 
+      margin-top: 45px; 
       cursor: pointer; 
-      font-size: 16px;
-      letter-spacing: 1px;
-      transition: all 0.3s;
-      box-shadow: 0 4px 15px rgba(176, 141, 87, 0.3);
-    }
-    button:hover { background: var(--accent); transform: translateY(-2px); }
-    button:disabled { background: #dcdcdc; box-shadow: none; }
-    #msg { 
-      margin-top: 25px; 
-      padding: 15px; 
-      border-radius: 8px; 
       font-size: 14px;
-      display: none; 
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.4s var(--spring);
+      box-shadow: 0 10px 20px rgba(201, 168, 108, 0.3);
     }
-    .error { border: 1px solid #f5c6cb; color: #721c24; background: #f8d7da; }
-    .success { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--primary); }
-    .ornament { color: var(--accent); font-size: 20px; margin: 20px 0; }
+
+    button:hover:not(:disabled) { 
+      background: var(--primary-dark-gold); 
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(201, 168, 108, 0.4);
+    }
+
+    button:active { transform: scale(0.98); }
+    button:disabled { background: var(--accent-pink-deep); cursor: not-allowed; }
+
+    #msg { margin-top: 30px; padding: 20px; border-radius: 12px; font-size: 15px; display: none; }
+    .success { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--text-primary); background: var(--accent-pink-light); }
+    .error { background: #fff5f5; color: #a04a4a; font-size: 13px; border: 1px solid #ffebeb; }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .card { padding: 30px 20px; border-radius: 16px; }
+      button { padding: 16px; }
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <? if (grupo) { ?>
-      <h2>Nuestra Boda</h2>
-      <div class="subtitle">Pase de Invitación</div>
-      <div class="ornament">~ ❁ ~</div>
-      
-      <form id="formBoda">
-        <input type="hidden" name="filaAncla" value="<?= grupo.fila ?>">
+  <div class="container">
+    <div class="card" id="mainCard">
+      <? if (grupo) { ?>
+        <h2>Nuestra Boda</h2>
+        <div class="subtitle">Confirmación de Asistencia</div>
         
-        <label>CÓDIGO DE CONFIRMACIÓN</label>
-        <input type="password" name="passConfirm" required placeholder="Introduce tu código secreto">
-        
-        <div style="margin-top: 30px;">
-          <? for (var i = 0; i < grupo.cantidad; i++) { ?>
-            <label>NOMBRE DEL INVITADO <?= i + 1 ?></label>
-            <input type="text" name="nombre<?= i ?>" required placeholder="Escribe aquí el nombre">
-          <? } ?>
-        </div>
-        
-        <button type="submit" id="btn">Confirmar Asistencia</button>
-      </form>
-    <? } else { ?>
-      <h2 style="font-size: 20px;">Invitación no encontrada</h2>
-      <p>Por favor, revisa el enlace enviado.</p>
-    <? } ?>
-    <div id="msg"></div>
+        <form id="formBoda">
+          <input type="hidden" name="filaAncla" value="<?= grupo.fila ?>">
+          
+          <label>Código de Acceso</label>
+          <input type="password" name="passConfirm" required placeholder="••••••••">
+          
+          <div style="margin-top: 20px;">
+            <? for (var i = 0; i < grupo.cantidad; i++) { ?>
+              <label>Nombre del Invitado <?= i + 1 ?></label>
+              <input type="text" name="nombre<?= i ?>" required placeholder="Ej. Juan Pérez">
+            <? } ?>
+          </div>
+          
+          <button type="submit" id="btn">Confirmar con Amor</button>
+        </form>
+      <? } else { ?>
+        <h2>Invitación</h2>
+        <p style="color: var(--text-muted)">No logramos encontrar tu invitación. Por favor, verifica el enlace.</p>
+      <? } ?>
+      <div id="msg"></div>
+    </div>
   </div>
 
   <script>
+    // Entrada animada
+    window.addEventListener('load', () => {
+      document.getElementById('mainCard').classList.add('visible');
+    });
+
     document.getElementById('formBoda').onsubmit = function(e) {
       e.preventDefault();
       const btn = document.getElementById('btn');
       const msgDiv = document.getElementById('msg');
+      
       btn.disabled = true;
-      btn.innerText = "Enviando con amor...";
+      btn.innerText = "Procesando...";
       msgDiv.style.display = 'none';
 
       google.script.run
         .withSuccessHandler(res => {
-          document.getElementById('formBoda').style.display = 'none';
-          document.querySelector('.ornament').style.display = 'none';
-          msgDiv.innerHTML = "<h3>¡Sí, acepto!</h3>" + res;
-          msgDiv.className = 'success';
-          msgDiv.style.display = 'block';
+          document.getElementById('formBoda').style.opacity = '0';
+          setTimeout(() => {
+            document.getElementById('formBoda').style.display = 'none';
+            document.querySelector('.ornament').innerHTML = "♥";
+            msgDiv.innerHTML = "<div style='font-style: italic; margin-bottom: 10px;'>¡Gracias por acompañarnos!</div>" + res;
+            msgDiv.className = 'success';
+            msgDiv.style.display = 'block';
+          }, 400);
         })
         .withFailureHandler(err => {
-          msgDiv.innerHTML = err.message;
+          msgDiv.innerHTML = "Ocurrió un error: " + err.message;
           msgDiv.className = 'error';
           msgDiv.style.display = 'block';
           btn.disabled = false;
-          btn.innerText = "Confirmar Asistencia";
+          btn.innerText = "Confirmar con Amor";
         })
         .actualizarRegistro(this);
     };

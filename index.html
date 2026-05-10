@@ -35,6 +35,12 @@
                 <path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6"></path>
             </svg>
         </button>
+        <button class="nav-btn" data-section="vestimenta" title="Ir a vestimenta" aria-label="Ir a código de vestimenta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M6 6l4 2 2-4 2 4 4-2-2 6 2 4-6-2-6 2 2-4-2-6z"/>
+                <path d="M12 14v4M8 18h8"/>
+            </svg>
+        </button>
         <button class="nav-btn" data-section="regalos" title="Ir a regalos" aria-label="Ir a regalos">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <polyline points="20 12 20 22 4 22 4 12"></polyline>
@@ -196,12 +202,57 @@
             </div>
         </section>
 
+        <!-- Sección 7: Código de Vestimenta -->
+        <section id="vestimenta" class="section vestimenta hidden" aria-labelledby="titulo-vestimenta">
+            <div class="container">
+                <h2 class="section-title" id="titulo-vestimenta">Código de Vestimenta</h2>
+                <p class="vestimenta-intro">Para celebrar juntos este día tan especial, los invitamos a vestir con elegancia formal. Aquí algunas sugerencias:</p>
+                
+                <div class="vestimenta-grid">
+                    <div class="vestimenta-card">
+                        <div class="vestimenta-icono" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M6 6l4 2 2-4 2 4 4-2-2 6 2 4-6-2-6 2 2-4-2-6z"/>
+                                <path d="M12 14v4M8 18h8"/>
+                            </svg>
+                        </div>
+                        <h3 class="vestimenta-label">Caballeros</h3>
+                        <p class="vestimenta-desc">Traje formal o terno, camisa, corbata o moño. Colores pastel y tonos claros son bienvenidos.</p>
+                    </div>
+                    
+                    <div class="vestimenta-card">
+                        <div class="vestimenta-icono" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20 7h-4l-4 6-4-6H4l4 8v6h8v-6l4-8z"/>
+                                <circle cx="12" cy="4" r="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="vestimenta-label">Damas</h3>
+                        <p class="vestimenta-desc">Vestido de gala, cocktail o conjunto elegante. Los colores pastel y tonos suaves son ideales.</p>
+                    </div>
+                </div>
+
+                <div class="vestimenta-paleta">
+                    <p class="vestimenta-paleta-texto">Paleta de colores sugerida</p>
+                    <div class="vestimenta-colores">
+                        <span class="vestimenta-color" style="background: #f4e1d2;" title="Rosa pastel"></span>
+                        <span class="vestimenta-color" style="background: #e8c4b0;" title="Rosa oscuro"></span>
+                        <span class="vestimenta-color" style="background: #c9a86c;" title="Dorado"></span>
+                        <span class="vestimenta-color" style="background: #d4e7d5;" title="Verde menta pastel"></span>
+                        <span class="vestimenta-color" style="background: #d4d9e7;" title="Lavanda pastel"></span>
+                        <span class="vestimenta-color" style="background: #faf8f5;" title="Crema"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="regalos" class="section regalos hidden">
             <div class="container">
                 <h2 class="section-title">Mesa de Regalos</h2>
-                <p class="regalos-texto">Tu presencia es el mejor regalo. Si deseas obsequiarnos algo, [a definir]</p>
+                <p class="regalos-texto">Tu presencia es el mejor regalo. Si lo desean, pueden contribuir con nuestro viaje de Luna de Miel.</p>
+                <p>Pueden hacerlo trnsfirendo al siguiente alias: ivan.mo.mp</p>
                 <div class="regalos-botones">
-                    <a href="#" class="btn-regalo">Mercadolibre</a>
+                    <a href="#" class="btn-regalo">Constribuir al amor</a>
                     
                 </div>
             </div>
