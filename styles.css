@@ -842,6 +842,8 @@ body {
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 50px;
+    border: none;
+    cursor: pointer;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     opacity: 0;
     transform: translateY(30px);
@@ -1617,5 +1619,278 @@ body {
     .nav-btn svg {
         width: 16px;
         height: 16px;
+    }
+}
+
+/* ============================================
+   MODAL: CONTRIBUIR AL AMOR
+   ============================================ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(90, 74, 58, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+}
+
+.modal-overlay:not([hidden]) {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 80px rgba(90, 74, 58, 0.25);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes modalSlideOut {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9) translateY(-30px);
+    }
+}
+
+.modal-overlay.closing .modal-container {
+    animation: modalSlideOut 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    border-bottom: 2px solid var(--color-rosa-light);
+    position: relative;
+}
+
+.modal-titulo {
+    font-family: var(--font-titulo);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-texto);
+    margin: 0;
+    flex: 1;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    color: var(--color-texto-claro);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.modal-close:hover {
+    background: var(--color-rosa-light);
+    color: var(--color-dorado-oscuro);
+    transform: rotate(90deg);
+}
+
+.modal-close:focus {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
+.modal-close:focus-visible {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
+.modal-content {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    flex: 1;
+}
+
+.cuenta-card {
+    background: var(--color-rosa-light);
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cuenta-card:hover {
+    border-color: var(--color-dorado);
+    box-shadow: 0 8px 25px rgba(201, 168, 108, 0.15);
+    transform: translateY(-4px);
+}
+
+.cuenta-icon {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: var(--color-dorado);
+    box-shadow: 0 4px 12px rgba(201, 168, 108, 0.2);
+}
+
+.cuenta-titulo {
+    font-family: var(--font-titulo);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-texto);
+    margin: 0 0 20px 0;
+}
+
+.cuenta-datos {
+    text-align: left;
+    width: 100%;
+}
+
+.dato-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-dorado-oscuro);
+    margin: 0 0 4px 0;
+    margin-top: 12px;
+}
+
+.dato-label:first-child {
+    margin-top: 0;
+}
+
+.dato-valor {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: var(--color-texto);
+    margin: 0 0 8px 0;
+    word-break: break-all;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(201, 168, 108, 0.2);
+}
+
+.modal-footer {
+    padding: 20px 30px;
+    background: var(--color-rosa-light);
+    border-top: 2px solid rgba(201, 168, 108, 0.2);
+    text-align: center;
+}
+
+.modal-nota {
+    font-size: 0.9rem;
+    color: var(--color-texto-claro);
+    margin: 0;
+    font-style: italic;
+}
+
+/* ============================================
+   MODAL RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .modal-container {
+        max-width: 95vw;
+        max-height: 95vh;
+    }
+
+    .modal-header {
+        padding: 20px;
+    }
+
+    .modal-titulo {
+        font-size: 1.5rem;
+    }
+
+    .modal-content {
+        padding: 20px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .modal-footer {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-header {
+        padding: 15px;
+    }
+
+    .modal-titulo {
+        font-size: 1.3rem;
+    }
+
+    .modal-content {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .cuenta-card {
+        padding: 20px;
+    }
+
+    .cuenta-titulo {
+        font-size: 1.1rem;
+    }
+
+    .dato-label {
+        font-size: 0.7rem;
+    }
+
+    .dato-valor {
+        font-size: 0.85rem;
+    }
+
+    .modal-footer {
+        padding: 12px 15px;
+    }
+
+    .modal-nota {
+        font-size: 0.85rem;
     }
 }
