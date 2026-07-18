@@ -402,4 +402,56 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }, { passive: true });
+    
+    // ============================================
+    // MODAL: CONTRIBUIR AL AMOR
+    // ============================================
+    const btnContribuirAlAmor = document.getElementById('btnContribuirAlAmor');
+    const modalContribuir = document.getElementById('modalContribuir');
+    const btnCerrarModal = document.getElementById('btnCerrarModal');
+    
+    // Abrir modal
+    btnContribuirAlAmor.addEventListener('click', () => {
+        abrirModal();
+    });
+    
+    // Cerrar modal con botón X
+    btnCerrarModal.addEventListener('click', () => {
+        cerrarModal();
+    });
+    
+    // Cerrar modal al hacer click fuera (en el overlay)
+    modalContribuir.addEventListener('click', (e) => {
+        if (e.target === modalContribuir) {
+            cerrarModal();
+        }
+    });
+    
+    // Cerrar modal con tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modalContribuir.hasAttribute('hidden')) {
+            cerrarModal();
+        }
+    });
+    
+    function abrirModal() {
+        modalContribuir.removeAttribute('hidden');
+        modalContribuir.classList.remove('closing');
+        document.body.style.overflow = 'hidden';
+        
+        // Dar focus al botón de cerrar para accesibilidad
+        setTimeout(() => {
+            btnCerrarModal.focus();
+        }, 100);
+    }
+    
+    function cerrarModal() {
+        modalContribuir.classList.add('closing');
+        
+        setTimeout(() => {
+            modalContribuir.setAttribute('hidden', '');
+            modalContribuir.classList.remove('closing');
+            document.body.style.overflow = '';
+        }, 300);
+    }
 });

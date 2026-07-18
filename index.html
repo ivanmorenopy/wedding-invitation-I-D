@@ -73,7 +73,6 @@
     <audio id="audioMusica" loop>
         <source src="assets/audio/musica.mp3" type="audio/mpeg">
         <source src="assets/audio/musica.ogg" type="audio/ogg">
-        <source src="assets/audio/musica.wav" type="audio/wav">
         <source src="assets/audio/musica.opus" type="audio/opus">
     </audio>
 
@@ -111,6 +110,13 @@
             </div>
         </section>
 
+        <!-- Sección: Imagen de los novios -->
+        <section id="imagen-novios" class="section hidden">
+            <div class="container" style="text-align: center; padding: 0;">
+                <img src="assets/images/Cuadro-01.png" alt="Marco decorativo" width="1800" height="3000" loading="lazy" style="width: 100%; height: auto; max-width: 100%; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 0px 0px rgba(0,0,0,0.08);">
+            </div>
+        </section>
+
         <!-- Sección 3: Fecha y Cuenta Regresiva -->
         <section id="fecha" class="section fecha hidden" aria-label="Fecha de la boda">
             <div class="container">
@@ -140,36 +146,54 @@
                     <div class="timeline-item left" role="listitem">
                         <div class="timeline-content">
                             <span class="timeline-date">2012</span>
+                            <div class="timeline-img-wrapper" data-placeholder="timeline-2012.jpg">
+                                <img src="assets/images/timeline-2012.jpg" alt="Cuando nos conocimos" class="timeline-img" onerror="this.style.display='none'">
+                            </div>
                             <p class="timeline-text">Cuando nos conocimos</p>
                         </div>
                     </div>
-                    <div class="timeline-item right">
+                    <div class="timeline-item right" role="listitem">
                         <div class="timeline-content">
                             <span class="timeline-date">2013</span>
+                            <div class="timeline-img-wrapper" data-placeholder="timeline-2013.jpg">
+                                <img src="assets/images/timeline-2013.jpg" alt="Derivadas van, integrales vienen y nos pusimos de novios" class="timeline-img" onerror="this.style.display='none'">
+                            </div>
                             <p class="timeline-text">Derivadas van, integrales vienen y nos pusimos de novios</p>
                         </div>
                     </div>
-                    <div class="timeline-item left">
+                    <div class="timeline-item left" role="listitem">
                         <div class="timeline-content">
                             <span class="timeline-date">2015</span>
+                            <div class="timeline-img-wrapper" data-placeholder="timeline-2015.jpg">
+                                <img src="assets/images/timeline-2015.jpg" alt="Nuestro primer viaje juntos y conocimos Machu Picchu" class="timeline-img" onerror="this.style.display='none'">
+                            </div>
                             <p class="timeline-text">Nuestro primer viaje juntos y conocimos Machu Picchu </p>
                         </div>
                     </div>
-                    <div class="timeline-item right">
+                    <div class="timeline-item right" role="listitem">
                         <div class="timeline-content">
                              <span class="timeline-date">2021</span>
+                             <div class="timeline-img-wrapper" data-placeholder="timeline-2021.jpg">
+                                <img src="assets/images/photo_2026-06-05_00-52-05.jpg" alt="Nos mudamos a nuestro primer nidito de amor" class="timeline-img" onerror="this.style.display='none'">
+                             </div>
                             <p class="timeline-text">Nos mudamos a nuestro primer nidito de amor </p>
                         </div>
                     </div>
-                    <div class="timeline-item left">
+                    <div class="timeline-item left" role="listitem">
                         <div class="timeline-content">
                             <span class="timeline-date">2025</span>
+                            <div class="timeline-img-wrapper" data-placeholder="timeline-2025.jpg">
+                                <img src="assets/images/timeline-2025.jpg" alt="¡La propuesta!" class="timeline-img" onerror="this.style.display='none'">
+                            </div>
                             <p class="timeline-text">¡La propuesta! </p>
                         </div>
                     </div>
-                    <div class="timeline-item right">
+                    <div class="timeline-item right" role="listitem">
                         <div class="timeline-content">
                             <span class="timeline-date">2026</span>
+                            <div class="timeline-img-wrapper" data-placeholder="timeline-2026.jpg">
+                                <img src="assets/images/timeline-2026.jpg" alt="¡Nos casamos!" class="timeline-img" onerror="this.style.display='none'">
+                            </div>
                             <p class="timeline-text">¡Nos casamos!</p>
                         </div>
                     </div>
@@ -248,12 +272,13 @@
 
         <section id="regalos" class="section regalos hidden">
             <div class="container">
-                <h2 class="section-title">Mesa de Regalos</h2>
-                <p class="regalos-texto">Tu presencia es el mejor regalo. Si lo desean, pueden contribuir con nuestro viaje de Luna de Miel.</p>
-                <p>Pueden hacerlo trnsfirendo al siguiente alias: ivan.mo.mp</p>
-                <div class="regalos-botones">
-                    <a href="#" class="btn-regalo">Constribuir al amor</a>
-                    
+                <div class="regalo-card">
+                    <h2 class="section-title">Mesa de Regalos</h2>
+                    <p class="regalos-texto">Tu presencia es el mejor regalo...</p>
+                    <p class="regalos-texto">Pueden hacerlo transfiriendo...</p>
+                    <div class="regalos-botones">
+                        <button id="btnContribuirAlAmor" class="btn-regalo">Contribuir al amor</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -282,13 +307,76 @@
         <!-- Sección 9: Footer -->
         <section id="footer" class="section footer hidden">
             <div class="container">
-                <img src="assets/images/sello.jpg" alt="Sello" class="sello-img">
+                <img src="assets/images/sello-pequeño.png" alt="Sello" class="sello-img">
                 <p class="footer-mensaje">Con amor,</p>
                 <p class="footer-nombres">Denys & Ivan</p>
                 <p class="footer-fecha">22 · 11 · 2026</p>
             </div>
         </section>
     </main>
+
+    <!-- Modal: Contribuir al Amor -->
+    <div id="modalContribuir" class="modal-overlay" role="dialog" aria-labelledby="modal-titulo" aria-modal="true" hidden>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modal-titulo" class="modal-titulo">Ivan Jorge Moreno</h2>
+                <button id="btnCerrarModal" class="modal-close" aria-label="Cerrar modal" title="Cerrar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="modal-content">
+                <!-- Cuenta en $ -->
+                <div class="cuenta-card">
+                    <div class="cuenta-icon" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 8C13.4 8 8 13.4 8 20C8 26.6 13.4 32 20 32C26.6 32 32 26.6 32 20C32 13.4 26.6 8 20 8Z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 14V26M17 17H23C24.1 17 25 17.9 25 19V21C25 22.1 24.1 23 23 23H17C15.9 23 15 22.1 15 21V19C15 17.9 15.9 17 17 17Z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cuenta-titulo">Cuenta en $</h3>
+                    <div class="cuenta-datos">
+                        <p class="dato-label">Cuil:</p>
+                        <p class="dato-valor">23-35996040-9</p>
+                        
+                        <p class="dato-label">CVU:</p>
+                        <p class="dato-valor">0000003100008618406492</p>
+                        
+                        <p class="dato-label">Alias:</p>
+                        <p class="dato-valor">Ivan.mo.mp</p>
+                    </div>
+                </div>
+
+                <!-- Cuenta en USD -->
+                <div class="cuenta-card">
+                    <div class="cuenta-icon" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 8C13.4 8 8 13.4 8 20C8 26.6 13.4 32 20 32C26.6 32 32 26.6 32 20C32 13.4 26.6 8 20 8Z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 14V26M17 17H23C24.1 17 25 17.9 25 19V21C25 22.1 24.1 23 23 23H17C15.9 23 15 22.1 15 21V19C15 17.9 15.9 17 17 17Z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cuenta-titulo">Cuenta en U$D</h3>
+                    <div class="cuenta-datos">
+                        <p class="dato-label">Cuil:</p>
+                        <p class="dato-valor">23-35996040-9</p>
+                        
+                        <p class="dato-label">CVU:</p>
+                        <p class="dato-valor">3220001888015148110018</p>
+                        
+                        <p class="dato-label">Alias:</p>
+                        <p class="dato-valor">Dia.espacio.volaban</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <p class="modal-nota">Copiar los datos y transferir desde tu banco</p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
