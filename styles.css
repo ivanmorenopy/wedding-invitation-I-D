@@ -1280,8 +1280,9 @@ body {
     }
 
     .timeline-item.left {
-        left: -17rem;
+        left: 0;
         text-align: left;
+        transform: translateX(-50px);
     }
 
     .timeline-item.right {
@@ -1291,6 +1292,13 @@ body {
     .timeline-item.left .timeline-content::after,
     .timeline-item.right .timeline-content::after {
         left: -50px;
+    }
+
+    .timeline-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 25px;
+        box-sizing: border-box;
     }
 
     .countdown {
