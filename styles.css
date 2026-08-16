@@ -10,6 +10,10 @@
     --font-titulo: 'Cormorant Garamond', serif;
     --font-cuerpo: 'Montserrat', sans-serif;
     --transition-suave: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Versiones RGB para fondos semitransparentes que dejan ver el video de fondo */
+    --rgb-rosa: 244, 225, 210;
+    --rgb-rosa-light: 250, 240, 235;
+    --rgb-crema: 250, 248, 245;
 }
 
 * {
@@ -28,12 +32,32 @@ body {
     color: var(--color-texto);
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-wrap: break-word;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.video-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+}
+
+.video-fondo.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .section {
@@ -280,9 +304,10 @@ body {
    SECCIÓN 1: PORTADA
    ============================================ */
 .portada {
-    background: linear-gradient(135deg, var(--color-rosa-light) 0%, var(--color-rosa) 50%, var(--color-crema) 100%);
+    background: linear-gradient(135deg, rgba(var(--rgb-rosa-light), 0.85) 0%, rgba(var(--rgb-rosa), 0.85) 50%, rgba(var(--rgb-crema), 0.85) 100%);
     background-size: 200% 200%;
     animation: gradientMove 15s ease infinite;
+    backdrop-filter: blur(2px);
 }
 
 .portada::after {
@@ -389,7 +414,8 @@ body {
    SECCIÓN 2: NOMBRES
    ============================================ */
 .nombres {
-    background-color: var(--color-crema);
+    background-color: rgba(var(--rgb-crema), 0.85);
+    backdrop-filter: blur(2px);
 }
 
 .nombres .container {
@@ -398,7 +424,7 @@ body {
 
 .pre-titulo {
     font-family: var(--font-cuerpo);
-    font-size: 0.85rem;
+    font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: 6px;
     text-transform: uppercase;
@@ -479,7 +505,8 @@ body {
    SECCIÓN 3: FECHA Y CUENTA REGRESIVA
    ============================================ */
 .fecha {
-    background: linear-gradient(180deg, var(--color-crema) 0%, var(--color-rosa-light) 50%, var(--color-crema) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-crema), 0.85) 0%, rgba(var(--rgb-rosa-light), 0.85) 50%, rgba(var(--rgb-crema), 0.85) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .fecha .container {
@@ -571,7 +598,8 @@ body {
    SECCIÓN 4: HISTORIA DE AMOR
    ============================================ */
 .historia {
-    background-color: var(--color-crema);
+    background-color: rgba(var(--rgb-crema), 0.85);
+    backdrop-filter: blur(2px);
 }
 
 .historia .container {
@@ -586,7 +614,7 @@ body {
     color: var(--color-texto);
     margin-bottom: 70px;
     position: relative;
-    opacity: 0;
+    opacity: 100;
     transform: translateY(40px);
     transition: all 0.8s ease;
 }
@@ -773,11 +801,13 @@ body {
    SECCIÓN 5 y 6: CEREMONIA Y RECEPCIÓN
    ============================================ */
 .ceremonia {
-    background: linear-gradient(180deg, var(--color-rosa-light) 0%, var(--color-crema) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-rosa-light), 0.85) 0%, rgba(var(--rgb-crema), 0.85) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .recepcion {
-    background: linear-gradient(180deg, var(--color-crema) 0%, var(--color-rosa-light) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-crema), 0.85) 0%, rgba(var(--rgb-rosa-light), 0.85) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .event-card {
@@ -853,7 +883,8 @@ body {
    SECCIÓN 7: MESA DE REGALOS
    ============================================ */
 .regalos {
-    background-color: var(--color-crema);
+    background-color: rgba(var(--rgb-crema), 0.85);
+    backdrop-filter: blur(2px);
 }
 
 .regalos .container {
@@ -888,8 +919,9 @@ body {
     padding: 18px 50px;
     background: linear-gradient(135deg, var(--color-dorado) 0%, var(--color-dorado-oscuro) 100%);
     color: white;
+    font-family: 'Montserrat', sans-serif;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 50px;
@@ -955,7 +987,8 @@ body {
    SECCIÓN 7: CÓDIGO DE VESTIMENTA
    ============================================ */
 .vestimenta {
-    background: linear-gradient(180deg, var(--color-crema) 0%, var(--color-rosa-light) 50%, var(--color-crema) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-crema), 0.85) 0%, rgba(var(--rgb-rosa-light), 0.85) 50%, rgba(var(--rgb-crema), 0.85) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .vestimenta .container {
@@ -1135,7 +1168,8 @@ body {
    SECCIÓN 8: RSVP
    ============================================ */
 .rsvp {
-    background: linear-gradient(180deg, var(--color-rosa-light) 0%, var(--color-crema) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-rosa-light), 0.85) 0%, rgba(var(--rgb-crema), 0.85) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .rsvp .container {
@@ -1202,7 +1236,8 @@ body {
    SECCIÓN 9: FOOTER
    ============================================ */
 .footer {
-    background: linear-gradient(180deg, var(--color-crema) 0%, var(--color-rosa-light) 50%, var(--color-crema) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-crema), 0.85) 0%, rgba(var(--rgb-rosa-light), 0.85) 50%, rgba(var(--rgb-crema), 0.85) 100%);
+    backdrop-filter: blur(2px);
     text-align: center;
 }
 
@@ -1803,6 +1838,15 @@ body {
     flex: 1;
 }
 
+.modal-subtitulo {
+    grid-column: 1 / -1;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-texto);
+    text-align: center;
+    margin: 0 0 5px 0;
+}
+
 .cuenta-card {
     background: var(--color-rosa-light);
     border-radius: 16px;
@@ -1866,7 +1910,8 @@ body {
     font-size: 0.9rem;
     color: var(--color-texto);
     margin: 0 0 8px 0;
-    word-break: break-all;
+    overflow-wrap: break-word;
+    word-break: normal;
     background: white;
     padding: 8px 12px;
     border-radius: 8px;

@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Video de fondo, se muestra al abrir la invitación -->
+    <video id="videoFondo" class="video-fondo" muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="assets/video/background-video.mp4" type="video/mp4">
+        <source src="assets/video/background-video.webm" type="video/webm">
+    </video>
+
     <!-- Navegación flotante -->
     <nav class="nav-floating" id="navFlotante" role="navigation" aria-label="Navegación principal">
         <button class="nav-btn" data-section="nombres" title="Ir a inicio" aria-label="Ir a inicio">
@@ -113,7 +119,7 @@
         <!-- Sección: Imagen de los novios -->
         <section id="imagen-novios" class="section hidden">
             <div class="container" style="text-align: center; padding: 0;">
-                <img src="assets/images/Cuadro-01.png" alt="Marco decorativo" width="1800" height="3000" loading="lazy" style="width: 100%; height: auto; max-width: 100%; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 0px 0px rgba(0,0,0,0.08);">
+                
             </div>
         </section>
 
@@ -209,7 +215,7 @@
                     
                     <div class="event-icon"><img style="width: 13rem;" src="assets/images/logo-quinta.jpg"/></div>
                     <p class="event-date">22 de Noviembre 2026</p>
-                    <p class="event-time">A las 18:00 hs</p>
+                    <p class="event-time">A las 17:50 hs</p>
                     <p class="event-place">Lugar: Quinta Setiembre Eventos</p>
                     <p class="event-address">Dirección: Aconquija 1152, B1849AZR Ministro Rivadavia, Provincia de Buenos Aires</p>
                     <a href="https://maps.app.goo.gl/X7y4szDkDRdZLxJr9" class="btn-mapa" id="btnMapaCeremonia" target="_blank">
@@ -230,7 +236,7 @@
         <section id="vestimenta" class="section vestimenta hidden" aria-labelledby="titulo-vestimenta">
             <div class="container">
                 <h2 class="section-title" id="titulo-vestimenta">Código de Vestimenta</h2>
-                <p class="vestimenta-intro">Para celebrar juntos este día tan especial, los invitamos a vestir con elegancia formal. Aquí algunas sugerencias:</p>
+                <p class="vestimenta-intro">Dress Code</p>
                 
                 <div class="vestimenta-grid">
                     <div class="vestimenta-card">
@@ -257,15 +263,10 @@
                 </div>
 
                 <div class="vestimenta-paleta">
+                    <p class="vestimenta-paleta-texto">Una orientación para tu vestimenta.</p>
                     <p class="vestimenta-paleta-texto">Paleta de colores sugerida</p>
-                    <div class="vestimenta-colores">
-                        <span class="vestimenta-color" style="background: #f4e1d2;" title="Rosa pastel"></span>
-                        <span class="vestimenta-color" style="background: #e8c4b0;" title="Rosa oscuro"></span>
-                        <span class="vestimenta-color" style="background: #c9a86c;" title="Dorado"></span>
-                        <span class="vestimenta-color" style="background: #d4e7d5;" title="Verde menta pastel"></span>
-                        <span class="vestimenta-color" style="background: #d4d9e7;" title="Lavanda pastel"></span>
-                        <span class="vestimenta-color" style="background: #faf8f5;" title="Crema"></span>
-                    </div>
+                    <img src="assets/images/paleta.png" alt="Paleta de colores sugerida" style="width: 100%;">
+                    
                 </div>
             </div>
         </section>
@@ -273,9 +274,16 @@
         <section id="regalos" class="section regalos hidden">
             <div class="container">
                 <div class="regalo-card">
-                    <h2 class="section-title">Mesa de Regalos</h2>
-                    <p class="regalos-texto">Tu presencia es el mejor regalo...</p>
-                    <p class="regalos-texto">Pueden hacerlo transfiriendo...</p>
+                    <h2 class="section-title">Regalos</h2>
+                    <svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+                        <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                        <rect x="2" y="7" width="20" height="5"></rect>
+                        <line x1="12" y1="22" x2="12" y2="7"></line>
+                        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+                    </svg>
+                    <p class="regalos-texto">Si quieres darnos algo mas que tu hermosa presencia...</p>
+                    
                     <div class="regalos-botones">
                         <button id="btnContribuirAlAmor" class="btn-regalo">Contribuir al amor</button>
                     </div>
@@ -319,7 +327,7 @@
     <div id="modalContribuir" class="modal-overlay" role="dialog" aria-labelledby="modal-titulo" aria-modal="true" hidden>
         <div class="modal-container">
             <div class="modal-header">
-                <h2 id="modal-titulo" class="modal-titulo">Ivan Jorge Moreno</h2>
+                <h2 id="modal-titulo" class="modal-titulo">Contribuir al amor</h2>
                 <button id="btnCerrarModal" class="modal-close" aria-label="Cerrar modal" title="Cerrar">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -329,6 +337,22 @@
             </div>
 
             <div class="modal-content">
+                <p class="modal-subtitulo">Puedes hacerlo en cualquiera de las siguientes maneras:</p>
+
+                <!-- Efectivo -->
+                <div class="cuenta-card">
+                    <div class="cuenta-icon" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="6" y="12" width="28" height="16" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="20" cy="20" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cuenta-titulo">En efectivo</h3>
+                    <div class="cuenta-datos">
+                        <p class="dato-valor">En persona a cualquiera de nosotros, Ivan o Denys </br> O en la urna que estará ubicada en el salón.</p>
+                    </div>
+                </div>
+
                 <!-- Cuenta en $ -->
                 <div class="cuenta-card">
                     <div class="cuenta-icon" aria-hidden="true">
@@ -337,10 +361,10 @@
                             <path d="M20 14V26M17 17H23C24.1 17 25 17.9 25 19V21C25 22.1 24.1 23 23 23H17C15.9 23 15 22.1 15 21V19C15 17.9 15.9 17 17 17Z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="cuenta-titulo">Cuenta en $</h3>
+                    <h3 class="cuenta-titulo">Transferencia cuenta en $</h3>
                     <div class="cuenta-datos">
-                        <p class="dato-label">Cuil:</p>
-                        <p class="dato-valor">23-35996040-9</p>
+                        <p class="dato-label">A nombre de:</p>
+                        <p class="dato-valor">Jorge Ivan Moreno</p>
                         
                         <p class="dato-label">CVU:</p>
                         <p class="dato-valor">0000003100008618406492</p>
@@ -349,6 +373,7 @@
                         <p class="dato-valor">Ivan.mo.mp</p>
                     </div>
                 </div>
+                
 
                 <!-- Cuenta en USD -->
                 <div class="cuenta-card">
@@ -358,10 +383,10 @@
                             <path d="M20 14V26M17 17H23C24.1 17 25 17.9 25 19V21C25 22.1 24.1 23 23 23H17C15.9 23 15 22.1 15 21V19C15 17.9 15.9 17 17 17Z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="cuenta-titulo">Cuenta en U$D</h3>
+                    <h3 class="cuenta-titulo">Transferencia cuenta en U$D</h3>
                     <div class="cuenta-datos">
-                        <p class="dato-label">Cuil:</p>
-                        <p class="dato-valor">23-35996040-9</p>
+                        <p class="dato-label">A nombre de:</p>
+                        <p class="dato-valor">Jorge Ivan Moreno</p>
                         
                         <p class="dato-label">CVU:</p>
                         <p class="dato-valor">3220001888015148110018</p>
