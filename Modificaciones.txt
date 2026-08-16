@@ -1,0 +1,7 @@
+Restricciones alimetarias: Vegetariano, vegano. celiaco u otra intolerancia
+Invitado debe completar nombre, apellido y edad.
+
+Agregar un espacio de tips y notas para poner que sean puntuales, confirmar antes de tal fecha, etc.
+Buscar icono de regalo para la parte de regalo.
+
+Agregar una parte para que carguen sus fotos y videos.
