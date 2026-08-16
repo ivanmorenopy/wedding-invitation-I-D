@@ -10,6 +10,10 @@
     --font-titulo: 'Cormorant Garamond', serif;
     --font-cuerpo: 'Montserrat', sans-serif;
     --transition-suave: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Versiones RGB para fondos semitransparentes que dejan ver el video de fondo */
+    --rgb-rosa: 244, 225, 210;
+    --rgb-rosa-light: 250, 240, 235;
+    --rgb-crema: 250, 248, 245;
 }
 
 * {
@@ -34,6 +38,25 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.video-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+}
+
+.video-fondo.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .section {
@@ -280,9 +303,10 @@ body {
    SECCIÓN 1: PORTADA
    ============================================ */
 .portada {
-    background: linear-gradient(135deg, var(--color-rosa-light) 0%, var(--color-rosa) 50%, var(--color-crema) 100%);
+    background: linear-gradient(135deg, rgba(var(--rgb-rosa-light), 0.85) 0%, rgba(var(--rgb-rosa), 0.85) 50%, rgba(var(--rgb-crema), 0.85) 100%);
     background-size: 200% 200%;
     animation: gradientMove 15s ease infinite;
+    backdrop-filter: blur(2px);
 }
 
 .portada::after {
@@ -389,7 +413,8 @@ body {
    SECCIÓN 2: NOMBRES
    ============================================ */
 .nombres {
-    background-color: var(--color-crema);
+    background-color: rgba(var(--rgb-crema), 0.85);
+    backdrop-filter: blur(2px);
 }
 
 .nombres .container {
@@ -479,7 +504,8 @@ body {
    SECCIÓN 3: FECHA Y CUENTA REGRESIVA
    ============================================ */
 .fecha {
-    background: linear-gradient(180deg, var(--color-crema) 0%, var(--color-rosa-light) 50%, var(--color-crema) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-crema), 0.85) 0%, rgba(var(--rgb-rosa-light), 0.85) 50%, rgba(var(--rgb-crema), 0.85) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .fecha .container {
@@ -571,7 +597,8 @@ body {
    SECCIÓN 4: HISTORIA DE AMOR
    ============================================ */
 .historia {
-    background-color: var(--color-crema);
+    background-color: rgba(var(--rgb-crema), 0.85);
+    backdrop-filter: blur(2px);
 }
 
 .historia .container {
@@ -773,11 +800,13 @@ body {
    SECCIÓN 5 y 6: CEREMONIA Y RECEPCIÓN
    ============================================ */
 .ceremonia {
-    background: linear-gradient(180deg, var(--color-rosa-light) 0%, var(--color-crema) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-rosa-light), 0.85) 0%, rgba(var(--rgb-crema), 0.85) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .recepcion {
-    background: linear-gradient(180deg, var(--color-crema) 0%, var(--color-rosa-light) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-crema), 0.85) 0%, rgba(var(--rgb-rosa-light), 0.85) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .event-card {
@@ -853,7 +882,8 @@ body {
    SECCIÓN 7: MESA DE REGALOS
    ============================================ */
 .regalos {
-    background-color: var(--color-crema);
+    background-color: rgba(var(--rgb-crema), 0.85);
+    backdrop-filter: blur(2px);
 }
 
 .regalos .container {
@@ -955,7 +985,8 @@ body {
    SECCIÓN 7: CÓDIGO DE VESTIMENTA
    ============================================ */
 .vestimenta {
-    background: linear-gradient(180deg, var(--color-crema) 0%, var(--color-rosa-light) 50%, var(--color-crema) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-crema), 0.85) 0%, rgba(var(--rgb-rosa-light), 0.85) 50%, rgba(var(--rgb-crema), 0.85) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .vestimenta .container {
@@ -1135,7 +1166,8 @@ body {
    SECCIÓN 8: RSVP
    ============================================ */
 .rsvp {
-    background: linear-gradient(180deg, var(--color-rosa-light) 0%, var(--color-crema) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-rosa-light), 0.85) 0%, rgba(var(--rgb-crema), 0.85) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .rsvp .container {
@@ -1202,7 +1234,8 @@ body {
    SECCIÓN 9: FOOTER
    ============================================ */
 .footer {
-    background: linear-gradient(180deg, var(--color-crema) 0%, var(--color-rosa-light) 50%, var(--color-crema) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-crema), 0.85) 0%, rgba(var(--rgb-rosa-light), 0.85) 50%, rgba(var(--rgb-crema), 0.85) 100%);
+    backdrop-filter: blur(2px);
     text-align: center;
 }
 

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     let musicaReproduciendo = false;
     const audio = document.getElementById('audioMusica');
+    const videoFondo = document.getElementById('videoFondo');
     const btnMusica = document.getElementById('btnMusica');
     const btnScrollTop = document.getElementById('btnScrollTop');
     const navFlotante = document.getElementById('navFlotante');
@@ -47,6 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 btnMusica.classList.add('playing');
                 document.querySelector('.icon-musica').style.display = 'none';
                 document.querySelector('.icon-pausa').style.display = 'block';
+                videoFondo.classList.add('visible');
+                videoFondo.play().catch(() => {
+                    console.log('Video de fondo no disponible o bloqueado');
+                });
             }).catch(() => {
                 console.log('Audio no disponible o bloqueado');
             });
@@ -111,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleMusica() {
         if (musicaReproduciendo) {
             audio.pause();
+            videoFondo.pause();
             btnMusica.classList.remove('playing');
             btnMusica.setAttribute('aria-pressed', 'false');
             document.querySelector('.icon-musica').style.display = 'block';
@@ -118,6 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             audio.play().catch(() => {
                 console.log('Audio no disponible o bloqueado');
+            });
+            videoFondo.classList.add('visible');
+            videoFondo.play().catch(() => {
+                console.log('Video de fondo no disponible o bloqueado');
             });
             btnMusica.classList.add('playing');
             btnMusica.setAttribute('aria-pressed', 'true');
@@ -129,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     audio.addEventListener('ended', () => {
         musicaReproduciendo = false;
+        videoFondo.pause();
         btnMusica.classList.remove('playing');
         document.querySelector('.icon-musica').style.display = 'block';
         document.querySelector('.icon-pausa').style.display = 'none';
