@@ -62,6 +62,14 @@
                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg>
         </button>
+        <button class="nav-btn" data-section="tips" title="Ir a tips y sugerencias" aria-label="Ir a tips y sugerencias">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M6 3.5h9l4 4V19a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2z"></path>
+                <path d="M15 3.5v4h4"></path>
+                <path d="M8 11h8"></path>
+                <path d="M8 15h8"></path>
+            </svg>
+        </button>
     </nav>
 
     <!-- Botón de música -->
@@ -170,10 +178,10 @@
                     <div class="timeline-item left" role="listitem">
                         <div class="timeline-content">
                             <span class="timeline-date">2015</span>
-                            <div class="timeline-img-wrapper" data-placeholder="timeline-2015.jpg">
-                                <img src="assets/images/timeline-2015.jpg" alt="Nuestro primer viaje juntos y conocimos Machu Picchu" class="timeline-img" onerror="this.style.display='none'">
+                            <div class="timeline-img-wrapper" data-placeholder="2015-machupichu.jpg">
+                                <img src="assets/images/2015-machupichu.jpg" alt="Conocimos Machu Picchu en nuestro primer viaje juntos" class="timeline-img" onerror="this.style.display='none'">
                             </div>
-                            <p class="timeline-text">Nuestro primer viaje juntos y conocimos Machu Picchu </p>
+                            <p class="timeline-text">Conocimos Machu Picchu en nuestro primer viaje juntos </p>
                         </div>
                     </div>
                     <div class="timeline-item right" role="listitem">
@@ -189,7 +197,7 @@
                         <div class="timeline-content">
                             <span class="timeline-date">2025</span>
                             <div class="timeline-img-wrapper" data-placeholder="timeline-2025.jpg">
-                                <img src="assets/images/timeline-2025.jpg" alt="¡La propuesta!" class="timeline-img" onerror="this.style.display='none'">
+                                <img src="assets/images/propuesta.jpg" alt="¡La propuesta!" class="timeline-img" onerror="this.style.display='none'">
                             </div>
                             <p class="timeline-text">¡La propuesta! </p>
                         </div>
@@ -236,7 +244,6 @@
         <section id="vestimenta" class="section vestimenta hidden" aria-labelledby="titulo-vestimenta">
             <div class="container">
                 <h2 class="section-title" id="titulo-vestimenta">Código de Vestimenta</h2>
-                <p class="vestimenta-intro">Dress Code</p>
                 
                 <div class="vestimenta-grid">
                     <div class="vestimenta-card">
@@ -265,7 +272,7 @@
                 <div class="vestimenta-paleta">
                     <p class="vestimenta-paleta-texto">Una orientación para tu vestimenta.</p>
                     <p class="vestimenta-paleta-texto">Paleta de colores sugerida</p>
-                    <img src="assets/images/paleta.png" alt="Paleta de colores sugerida" style="width: 100%;">
+                    <img src="assets/images/dress-code.png" alt="Paleta de colores sugerida" style="width: 100%;">
                     
                 </div>
             </div>
@@ -312,6 +319,29 @@
             </div>
         </section>
 
+        <!-- Sección adicional: Tips y sugerencias -->
+        <section id="tips" class="section tips hidden">
+            <div class="container">
+                <div class="tips-header">
+                    <div class="tips-icono" aria-hidden="true">
+                        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M6 3.5h9l4 4V19a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2z"></path>
+                            <path d="M15 3.5v4h4"></path>
+                            <path d="M8 11h8"></path>
+                            <path d="M8 15h8"></path>
+                        </svg>
+                    </div>
+                    <h2 class="section-title">Tips y sugerencias</h2>
+                </div>
+                <div class="tips-list">
+                    <p class="tips-item">Por favor ser puntuales</p>
+                    <p class="tips-item">Confirmar asistencia a la brevedad</p>
+                    <p class="tips-item">Olvidarse de todo y a disfrutar.</p>
+                    <p class="tips-item">No te olvides de comentarnos si tienes alguna restricción alimentaria</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Sección 9: Footer -->
         <section id="footer" class="section footer hidden">
             <div class="container">
@@ -323,11 +353,11 @@
         </section>
     </main>
 
-    <!-- Modal: Contribuir al Amor -->
+    <!-- Modal: Sugerencias -->
     <div id="modalContribuir" class="modal-overlay" role="dialog" aria-labelledby="modal-titulo" aria-modal="true" hidden>
         <div class="modal-container">
             <div class="modal-header">
-                <h2 id="modal-titulo" class="modal-titulo">Contribuir al amor</h2>
+                <h2 id="modal-titulo" class="modal-titulo">Sugerencias</h2>
                 <button id="btnCerrarModal" class="modal-close" aria-label="Cerrar modal" title="Cerrar">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -349,7 +379,12 @@
                     </div>
                     <h3 class="cuenta-titulo">En efectivo</h3>
                     <div class="cuenta-datos">
-                        <p class="dato-valor">En persona a cualquiera de nosotros, Ivan o Denys </br> O en la urna que estará ubicada en el salón.</p>
+                        <p class="dato-valor">
+                            Si desean realizarnos un regalo, podrán dejarlo en la urna que estará disponible en el salón.</br>
+                            Si nos quieren hacer cualquier otro presente, pueden entregarlo a las damas de honor o a cualquiera de nosotros.</br>
+                            Se aceptan de igual manera pendrives con bitcoin.
+                            
+                        </p>
                     </div>
                 </div>
 
@@ -361,9 +396,9 @@
                             <path d="M20 14V26M17 17H23C24.1 17 25 17.9 25 19V21C25 22.1 24.1 23 23 23H17C15.9 23 15 22.1 15 21V19C15 17.9 15.9 17 17 17Z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="cuenta-titulo">Transferencia cuenta en $</h3>
+                    <h3 class="cuenta-titulo">Transferencia bancaria (ARS)</h3>
                     <div class="cuenta-datos">
-                        <p class="dato-label">A nombre de:</p>
+                        <p class="dato-label">Titular:</p>
                         <p class="dato-valor">Jorge Ivan Moreno</p>
                         
                         <p class="dato-label">CVU:</p>
@@ -383,9 +418,9 @@
                             <path d="M20 14V26M17 17H23C24.1 17 25 17.9 25 19V21C25 22.1 24.1 23 23 23H17C15.9 23 15 22.1 15 21V19C15 17.9 15.9 17 17 17Z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="cuenta-titulo">Transferencia cuenta en U$D</h3>
+                    <h3 class="cuenta-titulo">Transferencia bancaria (USD)</h3>
                     <div class="cuenta-datos">
-                        <p class="dato-label">A nombre de:</p>
+                        <p class="dato-label">Titular:</p>
                         <p class="dato-valor">Jorge Ivan Moreno</p>
                         
                         <p class="dato-label">CVU:</p>
