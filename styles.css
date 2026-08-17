@@ -755,7 +755,7 @@ body {
     margin: 25px 0;
     border-radius: 14px;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     background-color: var(--color-rosa-light);
     border: 1px dashed var(--color-dorado);
     position: relative;
@@ -1231,6 +1231,70 @@ body {
     outline: 3px solid #25D366;
     outline-offset: 2px;
 }
+
+/* ============================================
+   SECCIÓN EXTRA: TIPS Y SUGERENCIAS
+   ============================================ */
+.tips {
+    background: linear-gradient(180deg, rgba(var(--rgb-rosa-light), 0.9) 0%, rgba(var(--rgb-crema), 0.9) 100%);
+    backdrop-filter: blur(2px);
+}
+
+.tips .container {
+    text-align: center;
+}
+
+.tips-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.tips-icono {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(201, 168, 108, 0.18), rgba(244, 225, 210, 0.9));
+    color: var(--color-dorado-oscuro);
+    box-shadow: 0 12px 30px rgba(90, 74, 58, 0.08);
+}
+
+.tips-list {
+    max-width: 650px;
+    margin: 0 auto;
+    display: grid;
+    gap: 16px;
+}
+
+.tips-item {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(166, 139, 75, 0.12);
+    border-radius: 18px;
+    padding: 20px 22px;
+    font-size: 1.05rem;
+    color: var(--color-texto-claro);
+    line-height: 1.7;
+    box-shadow: 0 10px 30px rgba(90, 74, 58, 0.05);
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 0.8s ease;
+}
+
+.tips.visible .tips-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tips.visible .tips-item:nth-child(1) { transition-delay: 0.1s; }
+.tips.visible .tips-item:nth-child(2) { transition-delay: 0.2s; }
+.tips.visible .tips-item:nth-child(3) { transition-delay: 0.3s; }
+.tips.visible .tips-item:nth-child(4) { transition-delay: 0.4s; }
 
 /* ============================================
    SECCIÓN 9: FOOTER
