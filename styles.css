@@ -1092,10 +1092,14 @@ body {
     margin-bottom: 12px;
 }
 
-.vestimenta-desc {
-    font-size: 0.95rem;
-    color: var(--color-texto-claro);
-    line-height: 1.7;
+.vestimenta-imagen {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(90, 74, 58, 0.12);
 }
 
 .vestimenta-paleta {
