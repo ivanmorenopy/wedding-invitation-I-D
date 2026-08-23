@@ -1118,6 +1118,39 @@ body {
     margin-bottom: 20px;
 }
 
+.btn-paleta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 50px;
+    background: linear-gradient(135deg, var(--color-dorado) 0%, var(--color-dorado-oscuro) 100%);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 10px 30px rgba(201, 168, 108, 0.3);
+}
+
+.btn-paleta:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(201, 168, 108, 0.4);
+}
+
+.btn-paleta:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.btn-paleta:focus,
+.btn-paleta:focus-visible {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+}
+
 .vestimenta-colores {
     display: flex;
     justify-content: center;
@@ -1892,6 +1925,27 @@ body {
 .modal-close:focus-visible {
     outline: 3px solid var(--color-dorado);
     outline-offset: 2px;
+}
+
+.modal-container-imagen {
+    max-width: min(92vw, 980px);
+}
+
+.modal-content-imagen {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content-imagen img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0 0 20px 20px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
 }
 
 .modal-content {

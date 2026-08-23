@@ -254,7 +254,7 @@
                             </svg>
                         </div>
                         <h3 class="vestimenta-label">Caballeros</h3>
-                        <p class="vestimenta-desc">Traje formal o terno, camisa, corbata o moño. Colores pastel y tonos claros son bienvenidos.</p>
+                        <p class="vestimenta-desc">Traje formal o terno, camisa, corbata o moño. Colores pastel o los clásicos son bienvenidos.</p>
                     </div>
                     
                     <div class="vestimenta-card">
@@ -271,9 +271,7 @@
 
                 <div class="vestimenta-paleta">
                     <p class="vestimenta-paleta-texto">Una orientación para tu vestimenta.</p>
-                    <p class="vestimenta-paleta-texto">Paleta de colores sugerida</p>
-                    <img src="assets/images/dress-code.png" alt="Paleta de colores sugerida" style="width: 100%;">
-                    
+                    <button type="button" id="btnVerPaleta" class="btn-paleta">Ver paleta de colores sugerida</button>
                 </div>
             </div>
         </section>
@@ -289,10 +287,10 @@
                         <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
                         <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
                     </svg>
-                    <p class="regalos-texto">Si quieres darnos algo mas que tu hermosa presencia...</p>
+                    <p class="regalos-texto">Si quieres regalarnos algo mas que tu hermosa presencia...</p>
                     
                     <div class="regalos-botones">
-                        <button id="btnContribuirAlAmor" class="btn-regalo">Contribuir al amor</button>
+                        <button id="btnContribuirAlAmor" class="btn-regalo">Un detalle para nosotros</button>
                     </div>
                 </div>
             </div>
@@ -336,8 +334,8 @@
                 <div class="tips-list">
                     <p class="tips-item">Por favor ser puntuales</p>
                     <p class="tips-item">Confirmar asistencia a la brevedad</p>
-                    <p class="tips-item">Olvidarse de todo y a disfrutar.</p>
                     <p class="tips-item">No te olvides de comentarnos si tienes alguna restricción alimentaria</p>
+                    <p class="tips-item">Olvidarse de todo y a disfrutar.</p>
                 </div>
             </div>
         </section>
@@ -434,6 +432,24 @@
 
             <div class="modal-footer">
                 <p class="modal-nota">Copiar los datos y transferir desde tu banco</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Paleta de colores sugerida -->
+    <div id="modalPaleta" class="modal-overlay" role="dialog" aria-labelledby="modal-paleta-titulo" aria-modal="true" hidden>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modal-paleta-titulo" class="modal-titulo">Paleta de colores sugerida</h2>
+                <button id="btnCerrarModalPaleta" class="modal-close" aria-label="Cerrar modal" title="Cerrar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-content-imagen">
+                <img src="assets/images/dress-code.png" alt="Paleta de colores sugerida para la vestimenta">
             </div>
         </div>
     </div>

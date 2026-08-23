@@ -465,4 +465,51 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         }, 300);
     }
+
+    // ============================================
+    // MODAL: PALETA DE COLORES SUGERIDA
+    // ============================================
+    const btnVerPaleta = document.getElementById('btnVerPaleta');
+    const modalPaleta = document.getElementById('modalPaleta');
+    const btnCerrarModalPaleta = document.getElementById('btnCerrarModalPaleta');
+
+    btnVerPaleta.addEventListener('click', () => {
+        abrirModalPaleta();
+    });
+
+    btnCerrarModalPaleta.addEventListener('click', () => {
+        cerrarModalPaleta();
+    });
+
+    modalPaleta.addEventListener('click', (e) => {
+        if (e.target === modalPaleta) {
+            cerrarModalPaleta();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modalPaleta.hasAttribute('hidden')) {
+            cerrarModalPaleta();
+        }
+    });
+
+    function abrirModalPaleta() {
+        modalPaleta.removeAttribute('hidden');
+        modalPaleta.classList.remove('closing');
+        document.body.style.overflow = 'hidden';
+
+        setTimeout(() => {
+            btnCerrarModalPaleta.focus();
+        }, 100);
+    }
+
+    function cerrarModalPaleta() {
+        modalPaleta.classList.add('closing');
+
+        setTimeout(() => {
+            modalPaleta.setAttribute('hidden', '');
+            modalPaleta.classList.remove('closing');
+            document.body.style.overflow = '';
+        }, 300);
+    }
 });
