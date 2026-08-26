@@ -70,6 +70,10 @@ body {
     overflow: hidden;
 }
 
+.section.hidden {
+    display: none;
+}
+
 .section::before {
     content: '';
     position: absolute;
@@ -614,9 +618,13 @@ body {
     color: var(--color-texto);
     margin-bottom: 70px;
     position: relative;
-    opacity: 100;
+    opacity: 0;
     transform: translateY(40px);
     transition: all 0.8s ease;
+}
+
+.section.visible .section-title {
+    opacity: 1;
 }
 
 .historia.visible .section-title {
@@ -1099,7 +1107,6 @@ body {
 
 .vestimenta-imagen {
     width: 100%;
-    max-width: 220px;
     height: auto;
     margin: 0 auto;
     display: block;

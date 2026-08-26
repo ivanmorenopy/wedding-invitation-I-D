@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Forzar inicio arriba al recargar o volver desde caché del navegador.
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    window.addEventListener('pageshow', () => {
+        window.scrollTo(0, 0);
+    });
+
     // ============================================
     // VARIABLES GLOBALES
     // ============================================
@@ -38,6 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
         setTimeout(() => {
             portada.style.display = 'none';
+            document.querySelectorAll('.section.hidden').forEach((seccion) => {
+                seccion.classList.remove('hidden');
+            });
             nombres.classList.add('visible');
             navFlotante.classList.add('visible');
             btnMusica.classList.add('visible');
