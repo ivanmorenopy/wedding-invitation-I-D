@@ -635,16 +635,13 @@ body {
 .section-title::after {
     content: '';
     display: block;
-    width: 0;
+    width: 30%;
     height: 2px;
     background: linear-gradient(90deg, var(--color-dorado), var(--color-dorado-oscuro));
     margin: 25px auto 0;
     transition: width 1s ease 0.5s;
 }
 
-.historia.visible .section-title::after {
-    width: 80px;
-}
 
 .timeline {
     position: relative;
@@ -1128,10 +1125,10 @@ body {
 
 .vestimenta-paleta-texto {
     font-family: var(--font-titulo);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-style: italic;
     color: var(--color-texto-claro);
-    margin-bottom: 20px;
+    margin-block: 8%;
 }
 
 .btn-paleta {
