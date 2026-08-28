@@ -1133,7 +1133,7 @@ body {
 
 .vestimenta-codigo-texto {
     font-family: var(--font-titulo);
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 1.5rem + 0.8vw, 3rem);
     font-style: italic;
     color: var(--color-texto-claro);
     margin-block: 8%;
