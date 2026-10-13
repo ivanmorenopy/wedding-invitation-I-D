@@ -1,6 +1,6 @@
-# wedding-invitation-I-D
+# Invitación de Cumpleaños — Esteban · 18 años
 
-invitacion
+Invitación de cumpleaños (12/12/2026). Antes: invitación de boda (ver tag `boda-respaldo`).
 
 ## Contenido
 

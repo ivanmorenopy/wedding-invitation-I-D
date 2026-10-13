@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     const sobreContainer = document.querySelector('.sobre-container');
     const portada = document.getElementById('portada');
-    const nombres = document.getElementById('nombres');
+    const nombreFecha = document.getElementById('nombre-fecha');
     
     sobreContainer.addEventListener('click', abrirInvitacion);
     sobreContainer.addEventListener('keydown', (e) => {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.section.hidden').forEach((seccion) => {
                 seccion.classList.remove('hidden');
             });
-            nombres.classList.add('visible');
+            nombreFecha.classList.add('visible');
             navFlotante.classList.add('visible');
             btnMusica.classList.add('visible');
             btnScrollTop.classList.add('visible');
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // CONFETTI CELEBRATION
     // ============================================
     function crearConfetti() {
-        const colores = ['#c9a86c', '#e8c4b0', '#f4e1d2', '#a68b4b', '#faf8f5'];
+        const colores = ['#c3a768', '#9a8149', '#041332', '#f4efe4', '#000000'];
         const cantidad = 80;
         
         for (let i = 0; i < cantidad; i++) {
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     function actualizarNavegacionActiva() {
-        const secciones = ['nombres', 'fecha', 'historia', 'ceremonia', 'vestimenta', 'regalos', 'rsvp', 'footer'];
+        const secciones = ['nombre-fecha', 'ceremonia', 'rsvp', 'footer'];
         const scrollPos = window.scrollY + window.innerHeight / 2;
         
         secciones.forEach(id => {
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ANIMACIONES DE SCROLL
     // ============================================
     function iniciarAnimacionesScroll() {
-        const secciones = document.querySelectorAll('.section:not(#portada):not(#nombres)');
+        const secciones = document.querySelectorAll('.section:not(#portada):not(#nombre-fecha)');
         
         const observerOptions = {
             threshold: 0.12,
@@ -240,9 +240,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let ultimoValor = { dias: -1, horas: -1, minutos: -1 };
     
     function actualizarCountdown() {
-        const fechaBoda = new Date('2026-11-22T00:00:00');
+        const fechaCumple = new Date('2026-12-12T18:00:00');
         const ahora = new Date();
-        const diferencia = fechaBoda - ahora;
+        const diferencia = fechaCumple - ahora;
         
         if (diferencia > 0) {
             const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ultimoValor = { dias, horas, minutos };
         } else {
             document.querySelector('.fecha-label').textContent = '¡Es hoy!';
-            document.querySelector('.countdown').innerHTML = '<p class="hoy-mensaje">¡Hoy es el gran día!</p>';
+            document.querySelector('.countdown').innerHTML = '<p class="hoy-mensaje">¡Hoy es el cumpleaños!</p>';
         }
     }
     
@@ -280,16 +280,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // EFECTOS HOVER INTERACTIVOS
     // ============================================
-    document.querySelectorAll('.timeline-content').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-    
     document.querySelectorAll('.countdown-item').forEach(item => {
         item.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px) scale(1.05)';
@@ -338,14 +328,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // KEYBOARD NAVIGATION MEJORADA
     // ============================================
     document.addEventListener('keydown', (e) => {
-        const secciones = ['portada', 'nombres', 'fecha', 'historia', 'ceremonia', 'vestimenta', 'regalos', 'rsvp', 'footer'];
+        const secciones = ['portada', 'nombre-fecha', 'ceremonia', 'rsvp', 'footer'];
         
         if (e.key === 'Escape' && !portada.classList.contains('hidden')) {
             sobreContainer.click();
             return;
         }
         
-        if (['nombres', 'fecha', 'historia', 'ceremonia', 'vestimenta', 'regalos', 'rsvp', 'footer'].some(id => 
+        if (['nombre-fecha', 'ceremonia', 'rsvp', 'footer'].some(id => 
             document.getElementById(id).classList.contains('visible'))) {
             
             const seccionActual = secciones.find(id => {
@@ -377,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (e.key === 'Home') {
                 e.preventDefault();
-                const primera = document.getElementById('nombres');
+                const primera = document.getElementById('nombre-fecha');
                 if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
             
@@ -426,102 +416,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { passive: true });
     
-    // ============================================
-    // MODAL: CONTRIBUIR AL AMOR
-    // ============================================
-    const btnContribuirAlAmor = document.getElementById('btnContribuirAlAmor');
-    const modalContribuir = document.getElementById('modalContribuir');
-    const btnCerrarModal = document.getElementById('btnCerrarModal');
-    
-    // Abrir modal
-    btnContribuirAlAmor.addEventListener('click', () => {
-        abrirModal();
-    });
-    
-    // Cerrar modal con botón X
-    btnCerrarModal.addEventListener('click', () => {
-        cerrarModal();
-    });
-    
-    // Cerrar modal al hacer click fuera (en el overlay)
-    modalContribuir.addEventListener('click', (e) => {
-        if (e.target === modalContribuir) {
-            cerrarModal();
-        }
-    });
-    
-    // Cerrar modal con tecla ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modalContribuir.hasAttribute('hidden')) {
-            cerrarModal();
-        }
-    });
-    
-    function abrirModal() {
-        modalContribuir.removeAttribute('hidden');
-        modalContribuir.classList.remove('closing');
-        document.body.style.overflow = 'hidden';
-        
-        // Dar focus al botón de cerrar para accesibilidad
-        setTimeout(() => {
-            btnCerrarModal.focus();
-        }, 100);
-    }
-    
-    function cerrarModal() {
-        modalContribuir.classList.add('closing');
-        
-        setTimeout(() => {
-            modalContribuir.setAttribute('hidden', '');
-            modalContribuir.classList.remove('closing');
-            document.body.style.overflow = '';
-        }, 300);
-    }
-
-    // ============================================
-    // MODAL: PALETA DE COLORES SUGERIDA
-    // ============================================
-    const btnVerPaleta = document.getElementById('btnVerPaleta');
-    const modalPaleta = document.getElementById('modalPaleta');
-    const btnCerrarModalPaleta = document.getElementById('btnCerrarModalPaleta');
-
-    btnVerPaleta.addEventListener('click', () => {
-        abrirModalPaleta();
-    });
-
-    btnCerrarModalPaleta.addEventListener('click', () => {
-        cerrarModalPaleta();
-    });
-
-    modalPaleta.addEventListener('click', (e) => {
-        if (e.target === modalPaleta) {
-            cerrarModalPaleta();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modalPaleta.hasAttribute('hidden')) {
-            cerrarModalPaleta();
-        }
-    });
-
-    function abrirModalPaleta() {
-        modalPaleta.removeAttribute('hidden');
-        modalPaleta.classList.remove('closing');
-        document.body.style.overflow = 'hidden';
-
-        setTimeout(() => {
-            btnCerrarModalPaleta.focus();
-        }, 100);
-    }
-
-    function cerrarModalPaleta() {
-        modalPaleta.classList.add('closing');
-
-        setTimeout(() => {
-            modalPaleta.setAttribute('hidden', '');
-            modalPaleta.classList.remove('closing');
-            document.body.style.overflow = '';
-        }, 300);
-    }
 });

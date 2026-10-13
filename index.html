@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivan & Denys - Wedding Invitation</title>
+    <title>Esteban · 18 años — Invitación de Cumpleaños</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -12,62 +12,26 @@
 <body>
     <!-- Video de fondo, se muestra al abrir la invitación -->
     <video id="videoFondo" class="video-fondo" muted loop playsinline preload="auto" aria-hidden="true">
-        <source src="assets/video/background-video.mp4" type="video/mp4">
-        <source src="assets/video/background-video.webm" type="video/webm">
+        <source src="" type="video/mp4">
+        <source src="" type="video/webm">
     </video>
 
     <!-- Navegación flotante -->
     <nav class="nav-floating" id="navFlotante" role="navigation" aria-label="Navegación principal">
-        <button class="nav-btn" data-section="nombres" title="Ir a inicio" aria-label="Ir a inicio">
+        <button class="nav-btn" data-section="nombre-fecha" title="Ir a inicio" aria-label="Ir a inicio">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
             </svg>
         </button>
-        <button class="nav-btn" data-section="fecha" title="Ir a fecha" aria-label="Ir a fecha">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>
-        </button>
-        <button class="nav-btn" data-section="historia" title="Ir a historia" aria-label="Ir a historia">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-        </button>
-        <button class="nav-btn" data-section="ceremonia" title="Ir a ceremonia" aria-label="Ir a ceremonia">
+        <button class="nav-btn" data-section="ceremonia" title="Ir al evento" aria-label="Ir al evento">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6"></path>
-            </svg>
-        </button>
-        <button class="nav-btn" data-section="vestimenta" title="Ir a vestimenta" aria-label="Ir a código de vestimenta">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M6 6l4 2 2-4 2 4 4-2-2 6 2 4-6-2-6 2 2-4-2-6z"/>
-                <path d="M12 14v4M8 18h8"/>
-            </svg>
-        </button>
-        <button class="nav-btn" data-section="regalos" title="Ir a regalos" aria-label="Ir a regalos">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <polyline points="20 12 20 22 4 22 4 12"></polyline>
-                <rect x="2" y="7" width="20" height="5"></rect>
-                <line x1="12" y1="22" x2="12" y2="7"></line>
-                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
-                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
             </svg>
         </button>
         <button class="nav-btn" data-section="rsvp" title="Ir a confirmar" aria-label="Ir a confirmar asistencia">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-        </button>
-        <button class="nav-btn" data-section="tips" title="Ir a tips y sugerencias" aria-label="Ir a tips y sugerencias">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M6 3.5h9l4 4V19a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2z"></path>
-                <path d="M15 3.5v4h4"></path>
-                <path d="M8 11h8"></path>
-                <path d="M8 15h8"></path>
             </svg>
         </button>
     </nav>
@@ -111,24 +75,16 @@
             </div>
         </section>
 
-        <!-- Sección 2: Nombres de los novios -->
-        <section id="nombres" class="section nombres hidden" aria-labelledby="titulo-nombres">
+        <!-- Sección 2: Nombre + Fecha -->
+        <section id="nombre-fecha" class="section nombres hidden" aria-labelledby="titulo-nombre-fecha">
             <div class="container">
-                <p class="pre-titulo" id="titulo-nombres">Nos casamos</p>
+                <p class="pre-titulo" id="titulo-nombre-fecha">Veni a celebrar a</p>
                 <h1 class="nombres-titulo">
-                    <span class="nombre">Denys</span>
-                    <span class="ampersand">&</span>
-                    <span class="nombre">Ivan</span>
+                    <span class="nombre">Esteban</span>
                 </h1>
+                <p class="edad-festejo">¡Cumple 18 años!</p>
                 <div class="decorative-line"></div>
-            </div>
-        </section>
-
-
-        <!-- Sección 3: Fecha y Cuenta Regresiva -->
-        <section id="fecha" class="section fecha hidden" aria-label="Fecha de la boda">
-            <div class="container">
-                <p class="fecha-label" id="fecha-boda">22 de Noviembre del 2026</p>
+                <p class="fecha-label" id="fecha-cumple">Sábado 12 de Diciembre del 2026</p>
                 <div class="countdown" id="countdown" role="timer" aria-live="polite" aria-label="Cuenta regresiva">
                     <div class="countdown-item">
                         <span class="countdown-number" id="dias">00</span>
@@ -146,78 +102,15 @@
             </div>
         </section>
 
-        <!-- Sección 4: Historia de Amor -->
-        <section id="historia" class="section historia hidden" aria-labelledby="titulo-historia">
+        <!-- Sección 3: Evento -->
+        <section id="ceremonia" class="section ceremonia hidden" aria-label="Fiesta de cumpleaños">
             <div class="container">
-                <h2 class="section-title" id="titulo-historia">Nuestra Historia</h2>
-                <div class="timeline" role="list" aria-label="Línea de tiempo de la relación">
-                    <div class="timeline-item left" role="listitem">
-                        <div class="timeline-content">
-                            <span class="timeline-date">2012</span>
-                            <div class="timeline-img-wrapper" data-placeholder="timeline-2012.jpg">
-                                <img src="assets/images/timeline-2012.jpg" alt="Cuando nos conocimos" class="timeline-img" onerror="this.style.display='none'">
-                            </div>
-                            <p class="timeline-text">Cuando nos conocimos</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right" role="listitem">
-                        <div class="timeline-content">
-                            <span class="timeline-date">2013</span>
-                            <div class="timeline-img-wrapper" data-placeholder="timeline-2013.jpg">
-                                <img src="assets/images/timeline-2013.jpg" alt="Derivadas van, integrales vienen y nos pusimos de novios" class="timeline-img" onerror="this.style.display='none'">
-                            </div>
-                            <p class="timeline-text">Derivadas van, integrales vienen y nos pusimos de novios</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left" role="listitem">
-                        <div class="timeline-content">
-                            <span class="timeline-date">2015</span>
-                            <div class="timeline-img-wrapper" data-placeholder="2015-machupichu.jpg">
-                                <img src="assets/images/2015-machupichu.jpg" alt="Conocimos Machu Picchu en nuestro primer viaje juntos" class="timeline-img" onerror="this.style.display='none'">
-                            </div>
-                            <p class="timeline-text">Conocimos Machu Picchu en nuestro primer viaje juntos </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right" role="listitem">
-                        <div class="timeline-content">
-                             <span class="timeline-date">2021</span>
-                             <div class="timeline-img-wrapper" data-placeholder="timeline-2021.jpg">
-                                <img src="assets/images/photo_2026-06-05_00-52-05.jpg" alt="Nos mudamos a nuestro primer nidito de amor" class="timeline-img" onerror="this.style.display='none'">
-                             </div>
-                            <p class="timeline-text">Nos mudamos a nuestro primer nidito de amor </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left" role="listitem">
-                        <div class="timeline-content">
-                            <span class="timeline-date">2025</span>
-                            <div class="timeline-img-wrapper" data-placeholder="timeline-2025.jpg">
-                                <img src="assets/images/propuesta.jpg" alt="¡La propuesta!" class="timeline-img" onerror="this.style.display='none'">
-                            </div>
-                            <p class="timeline-text">¡La propuesta! </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right" role="listitem">
-                        <div class="timeline-content">
-                            <span class="timeline-date">2026</span>
-                            <div class="timeline-img-wrapper" data-placeholder="timeline-2026.jpg">
-                                <img src="assets/images/timeline-2026.jpg" alt="¡Nos casamos!" class="timeline-img" onerror="this.style.display='none'">
-                            </div>
-                            <p class="timeline-text">¡Nos casamos!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección 5: Ceremonia -->
-        <section id="ceremonia" class="section ceremonia hidden">
-            <div class="container">
-                <h2 class="section-title">Ceremonia y fiesta</h2>
+                <h2 class="section-title">Fiesta de cumpleaños</h2>
                 <div class="event-card">
                     
-                    <div class="event-icon"><img style="width: 13rem;" src="assets/images/logo-quinta.jpg"/></div>
-                    <p class="event-date">22 de Noviembre del 2026</p>
-                    <p class="event-time">A las 17:50 hs</p>
+                    <div class="event-icon"><img style="width: 13rem;" src="assets/images/logo-quinta.jpg" alt="Logo de Quinta Setiembre Eventos"/></div>
+                    <p class="event-date">Sábado 12 de Diciembre del 2026</p>
+                    <p class="event-time">A las 18:00 hs</p>
                     <p class="event-place">Lugar: Quinta Setiembre Eventos</p>
                     <p class="event-address">Dirección: Aconquija 1152, B1849AZR Ministro Rivadavia, Provincia de Buenos Aires</p>
                     <a href="https://maps.app.goo.gl/X7y4szDkDRdZLxJr9" class="btn-mapa" id="btnMapaCeremonia" target="_blank">
@@ -227,231 +120,45 @@
                         </svg>
                         Ver en mapa
                     </a>
-                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda%20Denys%20e%20Ivan&dates=20261122T210000Z/20261123T050000Z&location=Quinta%20Setiembre%20Eventos%2C%20Aconquija%201152%2C%20B1849AZR%20Ministro%20Rivadavia%2C%20Provincia%20de%20Buenos%20Aires%2C%20Argentina&details=%C2%A1Los%20esperamos%20para%20celebrar%20esta%20uni%C3%B3n%20tan%20especial!" class="btn-calendario" target="_blank">
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cumplea%C3%B1os+de+Sof%C3%ADa+%2F+10+a%C3%B1os&dates=20261212T210000Z/20261213T010000Z&location=Quinta%20Setiembre%20Eventos%2C%20Aconquija%201152%2C%20Ministro%20Rivadavia%2C%20Buenos%20Aires&details=%C2%A1Te%20esperamos%20para%20festejar%20los%2010%20a%C3%B1os%20de%20Sof%C3%ADa!" class="btn-calendario" target="_blank">
                         📅 Agendar en Google Calendar
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Sección 7: Código de Vestimenta -->
-        <section id="vestimenta" class="section vestimenta hidden" aria-labelledby="titulo-vestimenta">
-            <div class="container">
-                <h2 class="section-title" id="titulo-vestimenta">Código de Vestimenta</h2>
-                
-                <p class="vestimenta-codigo-texto">Elegante (Formal)</p>
-
-                <div class="vestimenta-grid">
-                    <div class="vestimenta-card">
-                        
-                        
-                        <img src="assets/images/Dress-Code-Hombre.png" alt="Código de vestimenta para caballeros" class="vestimenta-imagen" width="500" height="750" loading="lazy">
-                        
-                    </div>
-                    
-                    <div class="vestimenta-card">
-                        
-                        
-                        <img src="assets/images/Dress-Code-Mujer.png" alt="Código de vestimenta para damas" class="vestimenta-imagen" width="500" height="750" loading="lazy">
-                        <p class="vestimenta-paleta-texto">El blanco y tonos similares estan reservados para la novia.</p>
-                    </div>
-                </div>
-                
-                
-
-                <div class="vestimenta-paleta">
-                    <p class="vestimenta-paleta-texto">Una orientación para tu vestimenta.</p>
-                    <button type="button" id="btnVerPaleta" class="btn-paleta">Ver paleta de colores sugerida</button>
-                </div>
-            </div>
-        </section>
-
-        <section id="regalos" class="section regalos hidden">
-            <div class="container">
-                <div class="regalo-card">
-                    <h2 class="section-title">Regalos</h2>
-                    <svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-                        <polyline points="20 12 20 22 4 22 4 12"></polyline>
-                        <rect x="2" y="7" width="20" height="5"></rect>
-                        <line x1="12" y1="22" x2="12" y2="7"></line>
-                        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
-                        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
-                    </svg>
-                    <p class="regalos-texto">Si quieres regalarnos algo mas que tu hermosa presencia...</p>
-                    
-                    <div class="regalos-botones">
-                        <button id="btnContribuirAlAmor" class="btn-regalo">Un detalle para nosotros</button>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Sección 8: Confirmar Asistencia -->
         <section id="rsvp" class="section rsvp hidden">
             <div class="container">
                 <h2 class="section-title">Confirma tu Asistencia</h2>
-                <p class="rsvp-texto">Por favor, ayúdanos confirmando tu asistencia </br> antes del 26 de Octubre del 2026</p>
+                <p class="rsvp-texto">Por favor, ayúdanos confirmando tu asistencia </br> antes del 28 de Noviembre del 2026</p>
                 <p class="rsvp-texto">Es importante confirmar para que podamos mantener tu lugar</p>
-                <a href="https://wa.me/541134051992?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Ivan%20y%20Denys.%20%0ATe%20informo%20los%20datos%3A%20%0ANombre%20completo%3A%0AEdad%3A%0ARestricci%C3%B3n%20alimentaria%3A%20SI%2FNO%0A%C2%BFCual%3F" class="btn-whatsapp" target="_blank">
+                <a href="https://wa.me/541134051992?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Sof%C3%ADa.%20%0ATe%20informo%20los%20datos%3A%20%0ANombre%20completo%3A%0AEdad%3A%0ARestricci%C3%B3n%20alimentaria%3A%20SI%2FNO%0A%C2%BFCual%3F" class="btn-whatsapp" target="_blank">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
-                    Confirmar por WhatsApp a Denys
+                    Confirmar por WhatsApp a Marcela
                 </a>
                 <p class="rsvp-texto"></p>
-                <a href="https://wa.me/541131097539?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Ivan%20y%20Denys.%20%0ATe%20informo%20los%20datos%3A%20%0ANombre%20completo%3A%0AEdad%3A%0ARestricci%C3%B3n%20alimentaria%3A%20SI%2FNO%0A%C2%BFCual%3F" class="btn-whatsapp" target="_blank">
+                <a href="https://wa.me/541131097539?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Sof%C3%ADa.%20%0ATe%20informo%20los%20datos%3A%20%0ANombre%20completo%3A%0AEdad%3A%0ARestricci%C3%B3n%20alimentaria%3A%20SI%2FNO%0A%C2%BFCual%3F" class="btn-whatsapp" target="_blank">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
-                    Confirmar por WhatsApp a Ivan
+                    Confirmar por WhatsApp a Esteban
                 </a>
-            </div>
-        </section>
-
-        <!-- Sección adicional: Tips y sugerencias -->
-        <section id="tips" class="section tips hidden">
-            <div class="container">
-                <div class="tips-header">
-                    <div class="tips-icono" aria-hidden="true">
-                        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M6 3.5h9l4 4V19a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2z"></path>
-                            <path d="M15 3.5v4h4"></path>
-                            <path d="M8 11h8"></path>
-                            <path d="M8 15h8"></path>
-                        </svg>
-                    </div>
-                    <h2 class="section-title">Tips y sugerencias</h2>
-                </div>
-                <div class="tips-list">
-                    <p class="tips-item">¡Por favor ser puntuales!</p>
-                    <p class="tips-item">Confirmar asistencia a la brevedad, es importante para mantener tu lugar.</p>
-                    <p class="tips-item">No te olvides de comentarnos si tienes alguna restricción alimentaria.</p>
-                    <p class="tips-item">¡Olvidarse de todo y a disfrutar!</p>
-                </div>
             </div>
         </section>
 
         <!-- Sección 9: Footer -->
         <section id="footer" class="section footer hidden">
             <div class="container">
-                <img src="assets/images/sello-pequeño.png" alt="Sello" class="sello-img">
-                <p class="footer-mensaje">Con amor,</p>
-                <p class="footer-nombres">Denys & Ivan</p>
-                <p class="footer-fecha">22 · 11 · 2026</p>
+                <p class="footer-mensaje">¡Te esperamos!</p>
+                <p class="footer-nombres">Esteban</p>
+                <p class="footer-fecha">12 · 12 · 2026</p>
             </div>
         </section>
     </main>
-
-    <!-- Modal: Sugerencias -->
-    <div id="modalContribuir" class="modal-overlay" role="dialog" aria-labelledby="modal-titulo" aria-modal="true" hidden>
-        <div class="modal-container">
-            <div class="modal-header">
-                <h2 id="modal-titulo" class="modal-titulo">Sugerencias</h2>
-                <button id="btnCerrarModal" class="modal-close" aria-label="Cerrar modal" title="Cerrar">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="modal-content">
-                <p class="modal-subtitulo">Si desean hacernos un regalo, pueden hacerlo de la manera que les resulte mas cómoda.</p>
-
-                <!-- Efectivo -->
-                <div class="cuenta-card">
-                    <div class="cuenta-icon" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="6" y="12" width="28" height="16" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="20" cy="20" r="4" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="cuenta-titulo">En efectivo o regalos</h3>
-                    <div class="cuenta-datos">
-                        <p class="dato-valor">
-                            Si desean realizarnos un regalo en efectivo, podrán dejarlo en la urna que estará disponible en el salón.</br>
-                            Si nos quieren dar cualquier otro presente, pueden entregarselo a las damas de honor o a cualquiera de nosotros.</br>
-                            (También se aceptan pendrives con bitcoin. 😜)
-                            
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Cuenta en $ -->
-                <div class="cuenta-card">
-                    <div class="cuenta-icon" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M8 14L20 9L32 14" stroke-linecap="round" stroke-linejoin="round"/>
-                            <line x1="10" y1="14" x2="30" y2="14" stroke-linecap="round"/>
-                            <line x1="13" y1="14" x2="13" y2="26" stroke-linecap="round"/>
-                            <line x1="18" y1="14" x2="18" y2="26" stroke-linecap="round"/>
-                            <line x1="22" y1="14" x2="22" y2="26" stroke-linecap="round"/>
-                            <line x1="27" y1="14" x2="27" y2="26" stroke-linecap="round"/>
-                            <line x1="10" y1="26" x2="30" y2="26" stroke-linecap="round"/>
-                            <line x1="8" y1="29" x2="32" y2="29" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="cuenta-titulo">Transferencia bancaria (ARS)</h3>
-                    <div class="cuenta-datos">
-                        <p class="dato-label">Titular:</p>
-                        <p class="dato-valor">Jorge Ivan Moreno</p>
-                                         
-                        
-                        <p class="dato-label">Alias:</p>
-                        <p class="dato-valor">boda.denys.ivan</p>
-                    </div>
-                </div>
-                
-
-                <!-- Cuenta en USD -->
-                <div class="cuenta-card">
-                    <div class="cuenta-icon" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M8 14L20 9L32 14" stroke-linecap="round" stroke-linejoin="round"/>
-                            <line x1="10" y1="14" x2="30" y2="14" stroke-linecap="round"/>
-                            <line x1="13" y1="14" x2="13" y2="26" stroke-linecap="round"/>
-                            <line x1="18" y1="14" x2="18" y2="26" stroke-linecap="round"/>
-                            <line x1="22" y1="14" x2="22" y2="26" stroke-linecap="round"/>
-                            <line x1="27" y1="14" x2="27" y2="26" stroke-linecap="round"/>
-                            <line x1="10" y1="26" x2="30" y2="26" stroke-linecap="round"/>
-                            <line x1="8" y1="29" x2="32" y2="29" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="cuenta-titulo">Transferencia bancaria (USD)</h3>
-                    <div class="cuenta-datos">
-                        <p class="dato-label">Titular:</p>
-                        <p class="dato-valor">Jorge Ivan Moreno</p>
-                        
-                                          
-                        <p class="dato-label">Alias:</p>
-                        <p class="dato-valor">boda.denys.ivan.dol</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <p class="modal-nota">Gracias por acompañarnos en este comienzo. ❤️</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Paleta de colores sugerida -->
-    <div id="modalPaleta" class="modal-overlay" role="dialog" aria-labelledby="modal-paleta-titulo" aria-modal="true" hidden>
-        <div class="modal-container">
-            <div class="modal-header">
-                <h2 id="modal-paleta-titulo" class="modal-titulo">Paleta de colores sugerida</h2>
-                <button id="btnCerrarModalPaleta" class="modal-close" aria-label="Cerrar modal" title="Cerrar">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-            <div class="modal-content-imagen">
-                <img src="assets/images/dress-code.png" alt="Paleta de colores sugerida para la vestimenta">
-            </div>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
