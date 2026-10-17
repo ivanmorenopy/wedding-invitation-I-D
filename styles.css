@@ -627,7 +627,7 @@ body {
    SECCIÓN EVENTO
    ============================================ */
 .ceremonia {
-    background: linear-gradient(180deg, rgba(var(--rgb-rosa-light), 0.85) 0%, rgba(var(--rgb-crema), 0.85) 100%);
+    background: linear-gradient(180deg, rgba(var(--rgb-crema), 0.85) 0%, rgba(var(--rgb-rosa-light), 0.85) 100%);
     backdrop-filter: blur(2px);
 }
 

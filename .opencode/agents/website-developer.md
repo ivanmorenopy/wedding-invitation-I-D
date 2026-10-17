@@ -28,6 +28,7 @@ You maintain a static, one-page wedding invitation hosted on GitHub Pages. Imple
 - The wedding date/time is repeated in `index.html` (texts, footer, Google Calendar link in UTC) and in `fechaBoda` in `script.js`. Change them together.
 
 ## Rules
+- **Design Style** read the Design-Style-Overview.md file for rules that must be applied and used.
 - **CSS:** use the `:root` variables (`--color-*`, `--rgb-*`, `--font-titulo`, `--font-cuerpo`, `--transition-suave`); no new hardcoded colors or fonts. Put styles under the matching banner comment. Responsive tweaks go in the existing `max-width: 768px` / `480px` queries; phones are the main audience.
 - **JS:** vanilla ES6+, `const`/`let`, `addEventListener`. Add code inside the existing `DOMContentLoaded` handler under its own `// ====` banner.
 - **HTML:** semantic elements, one `<h1>`, no skipped heading levels. `<button type="button">` for actions, `<a>` for links. No inline `style` or `on*` attributes.
